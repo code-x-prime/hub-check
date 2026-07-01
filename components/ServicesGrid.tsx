@@ -60,7 +60,7 @@ export default function ServicesGrid({ services, serviceSlug }: ServicesGridProp
                   <h3 className="font-bold text-base text-gray-900 group-hover:text-[#15803d] transition-colors duration-300 pt-1">
                     {service.title}
                   </h3>
-                  <p className="text-[11px] text-gray-500 leading-relaxed font-sans font-light">
+                  <p className="text-sm text-gray-500 leading-relaxed font-sans font-light">
                     {service.desc}
                   </p>
                 </div>
