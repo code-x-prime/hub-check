@@ -494,7 +494,7 @@ export default function WarehouseInspectionPage() {
       <section className="py-10 bg-[#fafafa] border-y border-gray-200/60 text-left">
         <div className="max-w-7xl mx-auto px-6">
           <h4 className="text-sm font-bold uppercase text-gray-400 tracking-wider mb-2">Our Warehouse Inspection Framework</h4>
-          <p className="text-[11px] leading-relaxed text-gray-400 font-sans font-light">
+          <p className="text-sm leading-relaxed text-gray-400 font-sans font-light">
             Hubcheck&apos;s Warehouse Inspection Services are conducted based on the information available at the time of inspection and within the agreed scope of work. Inspection observations, supporting information, and documented findings support client review processes and should be reviewed alongside internal policies, operational procedures, and decision-making frameworks.
           </p>
         </div>

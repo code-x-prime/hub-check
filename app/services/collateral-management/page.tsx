@@ -494,7 +494,7 @@ export default function CollateralManagementPage() {
       <section className="py-10 bg-[#fafafa] border-y border-gray-200/60 text-left">
         <div className="max-w-7xl mx-auto px-6">
           <h4 className="text-sm font-bold uppercase text-gray-400 tracking-wider mb-2">Our Collateral Management Audits Framework</h4>
-          <p className="text-[11px] leading-relaxed text-gray-400 font-sans font-light">
+          <p className="text-sm leading-relaxed text-gray-400 font-sans font-light">
             Hubcheck’s Collateral Management Audit Services run based on information available during the audit and within the agreed scope of work. Audit observations, verification findings, and supporting information help the client review processes. They should be reviewed along with internal policies, operational procedures, collateral management frameworks, and decision-making requirements.
           </p>
         </div>

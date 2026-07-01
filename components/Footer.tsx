@@ -82,7 +82,7 @@ const Footer = () => {
 
             {/* Links Content */}
             <div className="p-6 flex-grow bg-[#fafafa]/30">
-              <h4 className="font-extrabold text-[11px] uppercase tracking-widest text-gray-400 mb-6">
+              <h4 className="font-extrabold text-sm uppercase tracking-widest text-gray-400 mb-6">
                 {col.title}
               </h4>
               <ul className="space-y-4">

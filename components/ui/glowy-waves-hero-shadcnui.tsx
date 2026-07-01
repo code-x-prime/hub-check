@@ -473,7 +473,7 @@ export function GlowyWavesHero({ showWaves = true }: GlowyWavesHeroProps) {
                   ></span>
                 </span>
                 <span
-                  className="bg-gradient-to-b dark:from-white dark:to-white/50 from-neutral-950 to-neutral-950/50 bg-clip-text text-[11px] uppercase tracking-[0.25em] font-semibold text-transparent pl-1"
+                  className="bg-gradient-to-b dark:from-white dark:to-white/50 from-neutral-950 to-neutral-950/50 bg-clip-text text-sm uppercase tracking-[0.25em] font-semibold text-transparent pl-1"
                 >
                   Certified Warehouse Audit Partner
                 </span>
@@ -518,7 +518,7 @@ export function GlowyWavesHero({ showWaves = true }: GlowyWavesHeroProps) {
 
           <motion.ul
             variants={itemVariants}
-            className="mb-12 flex flex-wrap items-center justify-center gap-3 text-[11px] uppercase tracking-[0.2em] text-[#0f572a] font-light"
+            className="mb-12 flex flex-wrap items-center justify-center gap-3 text-sm uppercase tracking-[0.2em] text-[#0f572a] font-light"
           >
             {highlightPills.map((pill) => (
               <li

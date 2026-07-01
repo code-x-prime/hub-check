@@ -105,7 +105,7 @@ const WhyChooseUs = () => {
               >
                 <div className="space-y-2">
                   <h4 className="text-base font-bold tracking-tight text-gray-900 leading-snug">Structured Audit Methodology</h4>
-                  <p className="text-[11px] text-gray-500 leading-relaxed font-light font-sans">
+                  <p className="text-sm text-gray-500 leading-relaxed font-light font-sans">
                     Clear audit processes that ensure consistency, transparency, and proper validation of information.
                   </p>
                 </div>
@@ -122,7 +122,7 @@ const WhyChooseUs = () => {
               >
                 <div className="space-y-2">
                   <h4 className="text-base font-bold tracking-tight text-gray-900 leading-snug">Experienced Audit Team</h4>
-                  <p className="text-[11px] text-gray-500 leading-relaxed font-light font-sans">
+                  <p className="text-sm text-gray-500 leading-relaxed font-light font-sans">
                     Skilled professionals who follow structured methods for warehouse verification, inspection, and reporting.
                   </p>
                 </div>
@@ -140,7 +140,7 @@ const WhyChooseUs = () => {
               >
                 <div className="space-y-2">
                   <h4 className="text-base font-bold tracking-tight text-gray-900 leading-snug">Technology-Driven Processes</h4>
-                  <p className="text-[11px] text-gray-600 leading-relaxed font-light font-sans">
+                  <p className="text-sm text-gray-600 leading-relaxed font-light font-sans">
                     We use technology to make warehouse audits, documentation, and reporting more efficient.
                   </p>
                 </div>

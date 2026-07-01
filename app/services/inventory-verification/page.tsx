@@ -490,7 +490,7 @@ export default function InventoryVerificationPage() {
       <section className="py-10 bg-[#fafafa] border-y border-gray-200/60 text-left">
         <div className="max-w-7xl mx-auto px-6">
           <h4 className="text-sm font-bold uppercase text-gray-400 tracking-wider mb-2">Our Verification Framework</h4>
-          <p className="text-[11px] leading-relaxed text-gray-400 font-sans font-light">
+          <p className="text-sm leading-relaxed text-gray-400 font-sans font-light">
             Hubcheck’s Inventory Verification Services are carried out based on the information available during the verification and within the agreed scope of work. Verification findings, observations, and supporting information are intended to assist client review processes and should be evaluated alongside your internal policies, operational procedures, and decision-making frameworks.
           </p>
         </div>

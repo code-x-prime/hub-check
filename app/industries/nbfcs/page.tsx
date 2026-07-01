@@ -362,7 +362,7 @@ export default function NbfcsPage() {
                   Step {p.step}
                 </span>
                 <h3 className="font-bold text-base text-gray-900 pt-2">{p.title}</h3>
-                <p className="text-[11px] text-gray-500 leading-relaxed font-sans font-light">{p.desc}</p>
+                <p className="text-sm text-gray-500 leading-relaxed font-sans font-light">{p.desc}</p>
               </div>
             ))}
           </div>
