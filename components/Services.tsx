@@ -232,9 +232,9 @@ export default function Services() {
                         {item.title}
                       </h3>
 
-                      <p className={`text-sm leading-relaxed transition-all duration-300 ${isActive
-                        ? 'text-gray-600 font-medium max-h-[80px] opacity-100 mt-2'
-                        : 'text-gray-400 max-h-0 sm:max-h-[80px] opacity-80 group-hover:text-gray-500'
+                      <p className={`text-sm leading-relaxed transition-all duration-300 overflow-hidden ${isActive
+                        ? 'text-gray-600 font-medium max-h-[200px] opacity-100 mt-2'
+                        : 'text-gray-400 max-h-0 sm:max-h-[200px] opacity-80 group-hover:text-gray-500'
                         }`}>
                         {item.description}
                       </p>

@@ -282,22 +282,84 @@ div[class*="absolute"] > div[class*="bg-white"],
   color: #5c574c !important; /* Darker warm gray-sand */
 }
 
-/* 5. Non-active timeline circular icons should have white bg for pop-out contrast */
-.w-14.h-14.rounded-lg.bg-white,
-.w-12.h-12.rounded-xl.bg-green-50,
-.w-14.h-14.rounded-lg.bg-green-50 {
+/* 5. Timeline circular icons specifically in Services section */
+#services .w-14.h-14.rounded-lg.bg-white,
+#services .w-14.h-14.rounded-lg.bg-green-50,
+#services .w-12.h-12.rounded-xl.bg-green-50 {
   background-color: #ffffff !important;
   border: 1px solid #e8e4d5 !important;
 }
 
 /* Active timeline icon overrides to keep green and contrast clean */
-.w-14.h-14.rounded-lg.bg-\[\#15803d\] {
+#services .w-14.h-14.rounded-lg.bg-\[\#15803d\] {
   background-color: #004741 !important;
   border-color: #004741 !important;
 }
 
-/* 6. Fix dropdown icon background on item hover so white icon is visible */
+/* 6. Navbar Dropdown Icons Override */
+/* Default (not hovered) state: light sand background, Cyprus Green (#004741) icon */
+div[class*="absolute"] .bg-green-50,
+.absolute.top-full .bg-green-50 {
+  background-color: #f5f2e6 !important;
+  transition: all 0.3s ease;
+}
+
+div[class*="absolute"] .bg-green-50 img,
+.absolute.top-full .bg-green-50 img {
+  filter: invert(18%) sepia(91%) saturate(967%) hue-rotate(130deg) brightness(91%) contrast(101%) !important;
+  transition: all 0.3s ease;
+}
+
+/* Hovered state: Cyprus Green (#004741) background, white icon */
 .group\/item:hover div[class*="bg-green-50"],
 .group\/item:hover .bg-green-50 {
   background-color: #004741 !important;
+}
+
+.group\/item:hover div[class*="bg-green-50"] img,
+.group\/item:hover .bg-green-50 img {
+  filter: brightness(0) invert(1) !important;
+}
+
+/* 7. Commodities Grid Icons Override */
+/* Default state: white circle background, Cyprus Green (#004741) icon */
+#commodities .bg-green-50 {
+  background-color: #ffffff !important;
+  border: 1px solid #e8e4d5 !important;
+  transition: all 0.3s ease;
+}
+
+#commodities .bg-green-50 img {
+  filter: invert(18%) sepia(91%) saturate(967%) hue-rotate(130deg) brightness(91%) contrast(101%) !important;
+  transition: all 0.3s ease;
+}
+
+/* Hovered/Highlighted state: Cyprus Green (#004741) background, white icon */
+#commodities .group:hover .bg-green-50,
+#commodities div[class*="bg-green-600"] {
+  background-color: #004741 !important;
+  border-color: #004741 !important;
+}
+
+#commodities .group:hover .bg-green-50 img,
+#commodities div[class*="bg-green-600"] img {
+  filter: brightness(0) invert(1) !important;
+}
+
+/* Hovered state text and links colors inside commodities cards */
+#commodities .group:hover h4,
+#commodities div[class*="bg-green-600"] h4 {
+  color: #ffffff !important;
+}
+
+#commodities .group:hover p,
+#commodities div[class*="bg-green-600"] p {
+  color: #e6f2ec !important;
+}
+
+#commodities .group:hover span,
+#commodities .group:hover div,
+#commodities div[class*="bg-green-600"] span,
+#commodities div[class*="bg-green-600"] div {
+  color: #ffffff !important;
 }
