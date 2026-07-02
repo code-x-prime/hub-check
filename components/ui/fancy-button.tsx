@@ -32,15 +32,15 @@ export default function FancyButton({
       {/* Three sliding layered backgrounds */}
       {isPrimary ? (
         <>
-          <span className="absolute w-[250%] h-48 -top-12 -left-[75%] bg-emerald-600 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-right -z-10" />
-          <span className="absolute w-[250%] h-48 -top-12 -left-[75%] bg-green-200 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-right -z-10" />
+          <span className="absolute w-[250%] h-48 -top-12 -left-[75%] bg-[#ff6b00] rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-right -z-10" />
+          <span className="absolute w-[250%] h-48 -top-12 -left-[75%] bg-orange-200 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-right -z-10" />
           <span className="absolute w-[250%] h-48 -top-12 -left-[75%] bg-white rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-right -z-10" />
         </>
       ) : (
         <>
-          <span className="absolute w-[250%] h-48 -top-12 -left-[75%] bg-green-100 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-right -z-10" />
-          <span className="absolute w-[250%] h-48 -top-12 -left-[75%] bg-emerald-300 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-right -z-10" />
-          <span className="absolute w-[250%] h-48 -top-12 -left-[75%] bg-[#15803d] rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-right -z-10" />
+          <span className="absolute w-[250%] h-48 -top-12 -left-[75%] bg-orange-50 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-right -z-10" />
+          <span className="absolute w-[250%] h-48 -top-12 -left-[75%] bg-orange-200 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-right -z-10" />
+          <span className="absolute w-[250%] h-48 -top-12 -left-[75%] bg-[#ff6b00] rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-right -z-10" />
         </>
       )}
 
@@ -49,7 +49,7 @@ export default function FancyButton({
         className="relative z-10 flex items-center gap-2 transition-colors duration-500 font-semibold tracking-wide select-none pointer-events-none"
         style={{
           color: isHovered 
-            ? (isPrimary ? '#15803d' : '#ffffff') 
+            ? (isPrimary ? '#001c55' : '#ffffff') 
             : (isPrimary ? '#ffffff' : '#374151')
         }}
       >
@@ -66,10 +66,10 @@ export default function FancyButton({
           )}
           style={{
             backgroundColor: isHovered 
-              ? (isPrimary ? '#15803d' : '#ffffff') 
-              : (isPrimary ? '#ffffff' : '#15803d'),
+              ? (isPrimary ? '#001c55' : '#ffffff') 
+              : (isPrimary ? '#ffffff' : '#ff6b00'),
             borderColor: isHovered 
-              ? (isPrimary ? '#15803d' : '#ffffff') 
+              ? (isPrimary ? '#001c55' : '#ffffff') 
               : (isPrimary ? '#e5e7eb' : 'transparent'),
           }}
         >
@@ -91,8 +91,8 @@ export default function FancyButton({
     "font-sans inline-flex justify-center gap-3 items-center shadow-lg text-sm sm:text-base font-bold w-fit",
     "overflow-hidden relative z-10 px-6 py-2.5 cursor-pointer rounded-lg group transition-all duration-300 select-none border-2",
     isPrimary 
-      ? "bg-[#15803d] border-transparent hover:border-white/20" 
-      : "bg-white border-gray-200 hover:border-[#15803d]",
+      ? "bg-[#001c55] border-transparent hover:border-white/20" 
+      : "bg-white border-gray-200 hover:border-[#001c55]",
     className
   )
 

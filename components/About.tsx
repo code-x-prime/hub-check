@@ -59,13 +59,17 @@ export default function About() {
   )
 
   return (
-    <section id="about" className="py-12 md:py-16 px-6 bg-[#f2fcf5] border-y border-green-100/50 overflow-hidden" ref={sectionRef}>
-      <div className="max-w-7xl mx-auto">
+    <section id="about" className="relative py-12 md:py-16 px-6 bg-white border-y border-gray-100 overflow-hidden" ref={sectionRef}>
+      {/* Soft top/bottom gradients */}
+      <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-orange-100/10 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-orange-100/10 via-transparent to-transparent pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
 
           {/* Content - Left (col-span-5) */}
           <div className="lg:col-span-6 flex flex-col justify-center">
-            <span className="mb-4 text-sm font-extrabold uppercase tracking-widest text-[#15803d] animate-pulse">
+            <span className="mb-4 text-sm font-extrabold uppercase tracking-widest text-[#ff6b00] animate-pulse">
               Certified Partner
             </span>
 
@@ -90,9 +94,9 @@ export default function About() {
               {highlights.map((item) => (
                 <div
                   key={item}
-                  className="highlight-pill flex items-center gap-2 px-4 py-2.5 bg-green-50 rounded-full border border-green-100 hover:border-green-300 transition-colors"
+                  className="highlight-pill flex items-center gap-2 px-4 py-2.5 bg-orange-50 rounded-full border border-orange-100 hover:border-orange-300 transition-colors"
                 >
-                  <CheckCircle2 size={18} className="text-[#15803d] flex-shrink-0" />
+                  <CheckCircle2 size={18} className="text-[#ff6b00] flex-shrink-0" />
                   <span className="text-sm font-semibold text-gray-700">{item}</span>
                 </div>
               ))}
@@ -106,22 +110,22 @@ export default function About() {
           {/* Staggered Grid of 4 Images - Right (col-span-7) */}
           <div className="lg:col-span-6 grid grid-cols-2 gap-4 relative">
             {/* Background decorative blob */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-green-50 rounded-full blur-3xl -z-10 opacity-70" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-orange-50 rounded-full blur-3xl -z-10 opacity-70" />
 
             {/* Column 1 */}
             <div className="space-y-4">
-              <div className="staggered-image relative rounded-lg overflow-hidden shadow-md border border-gray-100 h-64 sm:h-72 w-full bg-green-50">
+              <div className="staggered-image relative rounded-lg overflow-hidden shadow-md border border-gray-100 h-64 sm:h-72 w-full bg-orange-50/10">
                 <Image
-                  src="/images/about/warehouse_inspection_about.png"
+                  src="/images/about/nbfc_officer.png"
                   alt="On-ground Warehouse Inspection"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 768px) 50vw, 30vw"
                 />
               </div>
-              <div className="staggered-image relative rounded-lg overflow-hidden shadow-md border border-gray-100 h-80 sm:h-96 w-full bg-green-50">
+              <div className="staggered-image relative rounded-lg overflow-hidden shadow-md border border-gray-100 h-80 sm:h-96 w-full bg-orange-50/10">
                 <Image
-                  src="/images/about/stock_verification_about.png"
+                  src="/images/about/cta_warehouse_audit.png"
                   alt="Stock Verification"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-500"
@@ -132,16 +136,16 @@ export default function About() {
 
             {/* Column 2 */}
             <div className="space-y-4 pt-12">
-              <div className="staggered-image relative rounded-lg overflow-hidden shadow-md border border-gray-100 h-80 sm:h-80 w-full bg-green-50">
+              <div className="staggered-image relative rounded-lg overflow-hidden shadow-md border border-gray-100 h-80 sm:h-80 w-full bg-orange-50/10">
                 <Image
-                  src="/images/about/collateral_monitoring_about.png"
+                  src="/images/about/why_choose_hubcheck.png"
                   alt="Collateral Management Audit"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 768px) 50vw, 30vw"
                 />
               </div>
-              <div className="staggered-image relative rounded-lg overflow-hidden shadow-md border border-gray-100 h-64 sm:h-72 w-full bg-green-50">
+              <div className="staggered-image relative rounded-lg overflow-hidden shadow-md border border-gray-100 h-64 sm:h-72 w-full bg-orange-50/10">
                 <Image
                   src="/images/about/due_diligence_about.png"
                   alt="Warehouse Due Diligence"

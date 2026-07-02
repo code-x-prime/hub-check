@@ -66,8 +66,12 @@ const Commodities = () => {
   }
 
   return (
-    <section id="commodities" className="py-12 md:py-16 px-6 bg-[#f6fcf8] border-y border-green-100/30 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section id="commodities" className="relative py-12 md:py-16 px-6 bg-white border-y border-gray-100 overflow-hidden">
+      {/* Soft top/bottom gradients */}
+      <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-blue-100/10 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-blue-100/10 via-transparent to-transparent pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
 
         {/* Outer Split Container */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -86,15 +90,15 @@ const Commodities = () => {
             {/* Status Pills */}
             <div className="flex flex-col gap-3 max-w-xs">
               <div className="bg-gray-900 text-white rounded-lg px-5 py-3 font-semibold text-sm tracking-wider flex items-center gap-2.5 shadow-sm">
-                <Check size={14} className="text-[#15803d]" />
+                <Check size={14} className="text-[#ff6b00]" />
                 AGRICULTURAL STOCK
               </div>
               <div className="bg-gray-900 text-white rounded-lg px-5 py-3 font-semibold text-sm tracking-wider flex items-center gap-2.5 shadow-sm">
-                <Check size={14} className="text-[#15803d]" />
+                <Check size={14} className="text-[#ff6b00]" />
                 SECURED COLLATERAL
               </div>
               <div className="bg-gray-900 text-white rounded-lg px-5 py-3 font-semibold text-sm tracking-wider flex items-center gap-2.5 shadow-sm">
-                <Check size={14} className="text-[#15803d]" />
+                <Check size={14} className="text-[#ff6b00]" />
                 PAN-INDIA VERIFICATION
               </div>
             </div>
@@ -144,8 +148,8 @@ const Commodities = () => {
                     <motion.div
                       variants={itemVariants}
                       className={`p-8 flex flex-col justify-between min-h-[220px] h-full transition-all duration-300 group cursor-pointer ${item.highlight
-                        ? 'bg-[#15803d] text-white'
-                        : 'bg-white hover:bg-[#15803d] text-gray-900 hover:text-white'
+                        ? 'bg-[#001c55] text-white'
+                        : 'bg-white hover:bg-[#001c55] text-gray-900 hover:text-white'
                         }`}
                     >
                       <div>

@@ -280,9 +280,9 @@ export function GlowyWavesHero({ showWaves = true }: GlowyWavesHeroProps) {
             const factor = 1 - distance / influenceRadius; // 0 to 1
             radius = 1.0 + factor * 2.5; // swell up
             opacity = 0.12 + factor * 0.45; // glow brighter
-            ctx.fillStyle = `rgba(21, 128, 61, ${opacity})`;
+            ctx.fillStyle = `rgba(255, 107, 0, ${opacity})`;
           } else {
-            ctx.fillStyle = `rgba(21, 128, 61, ${opacity})`;
+            ctx.fillStyle = `rgba(0, 28, 85, ${opacity})`;
           }
 
           ctx.beginPath();
@@ -321,7 +321,7 @@ export function GlowyWavesHero({ showWaves = true }: GlowyWavesHeroProps) {
       aria-label="Glowing waves hero section"
     >
       {/* Background Gradient Layer */}
-      <div className="absolute inset-0 -z-30 bg-gradient-to-br from-green-100/80 via-emerald-50/40 to-white pointer-events-none" />
+      <div className="absolute inset-0 -z-30 bg-gradient-to-br from-orange-100/20 via-blue-50/30 to-[#fcfbf7] pointer-events-none" />
 
       <canvas
         ref={canvasRef}
@@ -329,11 +329,11 @@ export function GlowyWavesHero({ showWaves = true }: GlowyWavesHeroProps) {
         aria-hidden="true"
       />
 
-      {/* Extra soft green/emerald glow blobs for styling */}
+      {/* Extra soft orange/navy blue glow blobs for styling */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-green-500/[0.08] blur-[140px]" />
-        <div className="absolute bottom-0 right-0 h-[360px] w-[360px] rounded-full bg-emerald-500/[0.06] blur-[120px]" />
-        <div className="absolute top-1/2 left-1/4 h-[400px] w-[400px] rounded-full bg-[#15803d]/[0.05] blur-[150px]" />
+        <div className="absolute left-1/2 top-0 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-orange-500/[0.05] blur-[140px]" />
+        <div className="absolute bottom-0 right-0 h-[360px] w-[360px] rounded-full bg-blue-500/[0.04] blur-[120px]" />
+        <div className="absolute top-1/2 left-1/4 h-[400px] w-[400px] rounded-full bg-[#001c55]/[0.03] blur-[150px]" />
       </div>
 
       {/* Floating Decorative Service Illustrations */}
@@ -392,7 +392,7 @@ export function GlowyWavesHero({ showWaves = true }: GlowyWavesHeroProps) {
                   <span
                     className="block -translate-x-1/2 -translate-y-1/3 size-24 blur-xl animate-[border-glow-translate_10s_ease-in-out_infinite_alternate]"
                     style={{
-                      background: "linear-gradient(135deg, rgb(16, 185, 129), rgb(34, 197, 94), rgb(132, 204, 22))",
+                      background: "linear-gradient(135deg, rgb(255, 107, 0), rgb(255, 158, 89), rgb(0, 28, 85))",
                     }}
                   ></span>
                 </span>
@@ -408,7 +408,7 @@ export function GlowyWavesHero({ showWaves = true }: GlowyWavesHeroProps) {
                   className="block z-0 h-full w-12 blur-xl -translate-x-1/2 rounded-full"
                   style={{
                     animation: "10s ease-in-out 0s infinite alternate none running border-glow-scale",
-                    background: "linear-gradient(135deg, rgb(16, 185, 129), rgb(34, 197, 94), rgb(132, 204, 22))",
+                    background: "linear-gradient(135deg, rgb(255, 107, 0), rgb(255, 158, 89), rgb(0, 28, 85))",
                   }}
                 ></span>
               </span>
@@ -446,9 +446,9 @@ export function GlowyWavesHero({ showWaves = true }: GlowyWavesHeroProps) {
                         y2="-1.5"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop stopColor="#10B981"></stop>
-                        <stop offset="0.575" stopColor="#22C55E"></stop>
-                        <stop offset="1" stopColor="#84CC16"></stop>
+                        <stop stopColor="#ff6b00"></stop>
+                        <stop offset="0.575" stopColor="#ff9e59"></stop>
+                        <stop offset="1" stopColor="#001c55"></stop>
                       </linearGradient>
                       <linearGradient
                         id="paint1_linear_171_8212"
@@ -458,9 +458,9 @@ export function GlowyWavesHero({ showWaves = true }: GlowyWavesHeroProps) {
                         y2="-1.5"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop stopColor="#10B981"></stop>
-                        <stop offset="0.575" stopColor="#22C55E"></stop>
-                        <stop offset="1" stopColor="#84CC16"></stop>
+                        <stop stopColor="#ff6b00"></stop>
+                        <stop offset="0.575" stopColor="#ff9e59"></stop>
+                        <stop offset="1" stopColor="#001c55"></stop>
                       </linearGradient>
                     </defs>
                   </svg>
@@ -468,7 +468,7 @@ export function GlowyWavesHero({ showWaves = true }: GlowyWavesHeroProps) {
                     className="rounded-full size-11 absolute opacity-0 dark:opacity-30 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-lg"
                     style={{
                       animation: "14s ease-in-out 0s infinite alternate none running star-shine",
-                      background: "linear-gradient(135deg, rgb(16, 185, 129), rgb(34, 197, 94), rgb(132, 204, 22))",
+                      background: "linear-gradient(135deg, rgb(255, 107, 0), rgb(255, 158, 89), rgb(0, 28, 85))",
                     }}
                   ></span>
                 </span>
@@ -489,7 +489,7 @@ export function GlowyWavesHero({ showWaves = true }: GlowyWavesHeroProps) {
             <CornerFrameScrambleText
               value="Warehouse Audit Services"
               as="span"
-              className="text-[#15803d] mx-2 inline-block align-middle my-1"
+              className="text-[#ff6b00] mx-2 inline-block align-middle my-1"
             />
           </motion.h1>
 
@@ -518,12 +518,12 @@ export function GlowyWavesHero({ showWaves = true }: GlowyWavesHeroProps) {
 
           <motion.ul
             variants={itemVariants}
-            className="mb-12 flex flex-wrap items-center justify-center gap-3 text-sm uppercase tracking-[0.2em] text-[#0f572a] font-light"
+            className="mb-12 flex flex-wrap items-center justify-center gap-3 text-sm uppercase tracking-[0.2em] text-[#ff6b00] "
           >
             {highlightPills.map((pill) => (
               <li
                 key={pill}
-                className="rounded-full border border-green-100 bg-green-50/70 px-4 py-2 backdrop-blur-sm"
+                className="rounded-full border border-orange-200 bg-orange-50/50 px-4 py-2 backdrop-blur-sm"
               >
                 {pill}
               </li>

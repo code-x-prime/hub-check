@@ -55,19 +55,19 @@
   --card-foreground: #1a202c;
   --popover: #fcfbf7;
   --popover-foreground: #1a202c;
-  --primary: #004741;
+  --primary: #001c55;
   --primary-foreground: #ffffff;
   --secondary: #f5f2e6;
   --secondary-foreground: #1a202c;
   --muted: #f5f2e6;
   --muted-foreground: #4b5563;
-  --accent: #004741;
+  --accent: #ff6b00;
   --accent-foreground: #ffffff;
   --destructive: #dc2626;
   --border: #e8e4d5;
   --input: #e8e4d5;
-  --ring: #004741;
-  --chart-1: #004741;
+  --ring: #001c55;
+  --chart-1: #001c55;
   --chart-2: #78350f;
   --chart-3: #a16207;
   --chart-4: #b45309;
@@ -75,12 +75,12 @@
   --radius: 0.75rem;
   --sidebar: #f5f2e6;
   --sidebar-foreground: #1a202c;
-  --sidebar-primary: #004741;
+  --sidebar-primary: #001c55;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #78350f;
+  --sidebar-accent: #ff6b00;
   --sidebar-accent-foreground: #ffffff;
   --sidebar-border: #e8e4d5;
-  --sidebar-ring: #004741;
+  --sidebar-ring: #001c55;
 }
 
 @layer base {
@@ -174,21 +174,19 @@
 }
 
 .group:hover .fancy-button-text-primary {
-  color: #004741 !important;
+  color: #001c55 !important;
 }
 
 .group:hover .fancy-button-text-secondary {
   color: #ffffff !important;
 }
 
-/* Global utility overrides for Sand (#fcfbf7) and Cyprus (#004741) */
+/* Global utility overrides for Sand (#fcfbf7) and Navy Blue (#001c55) / Orange (#ff6b00) */
 body, html {
   background-color: #fcfbf7 !important;
 }
 
 /* Background overrides */
-.bg-white, 
-[class*="bg-white"],
 .bg-background {
   background-color: #fcfbf7 !important;
 }
@@ -202,31 +200,31 @@ body, html {
 }
 
 .bg-green-50 {
-  background-color: rgba(0, 71, 65, 0.08) !important;
+  background-color: rgba(0, 28, 85, 0.06) !important;
 }
 
 .bg-\[\#15803d\],
 .bg-green-600,
 .bg-emerald-600 {
-  background-color: #004741 !important;
+  background-color: #001c55 !important;
 }
 
 .hover\:bg-\[\#15803d\]:hover,
 .hover\:bg-green-700:hover,
 .group-hover\/item\:bg-\[\#15803d\] {
-  background-color: #00332e !important;
+  background-color: #ff6b00 !important; /* turns orange on hover for nice accent contrast */
 }
 
 /* Text overrides */
 .text-\[\#15803d\],
 .text-green-800,
 .text-green-700 {
-  color: #004741 !important;
+  color: #001c55 !important;
 }
 
 .hover\:text-\[\#15803d\]:hover,
 .group-hover\/item\:text-\[\#15803d\] {
-  color: #004741 !important;
+  color: #ff6b00 !important; /* hover accents turn orange */
 }
 
 /* Border overrides */
@@ -238,12 +236,12 @@ body, html {
 }
 
 .border-green-200\/50 {
-  border-color: rgba(0, 71, 65, 0.25) !important;
+  border-color: rgba(0, 28, 85, 0.25) !important;
 }
 
 .border-\[\#15803d\],
 .border-green-600 {
-  border-color: #004741 !important;
+  border-color: #001c55 !important;
 }
 
 /* Special adjustments for grids and forms */
@@ -255,7 +253,7 @@ body, html {
 
 /* 1. Global selection styling */
 ::selection {
-  background-color: #004741 !important;
+  background-color: #ff6b00 !important;
   color: #ffffff !important;
 }
 
@@ -290,14 +288,14 @@ div[class*="absolute"] > div[class*="bg-white"],
   border: 1px solid #e8e4d5 !important;
 }
 
-/* Active timeline icon overrides to keep green and contrast clean */
+/* Active timeline icon overrides to keep navy and contrast clean */
 #services .w-14.h-14.rounded-lg.bg-\[\#15803d\] {
-  background-color: #004741 !important;
-  border-color: #004741 !important;
+  background-color: #001c55 !important;
+  border-color: #001c55 !important;
 }
 
 /* 6. Navbar Dropdown Icons Override */
-/* Default (not hovered) state: light sand background, Cyprus Green (#004741) icon */
+/* Default (not hovered) state: light sand background, Navy (#001c55) icon */
 div[class*="absolute"] .bg-green-50,
 .absolute.top-full .bg-green-50 {
   background-color: #f5f2e6 !important;
@@ -306,14 +304,14 @@ div[class*="absolute"] .bg-green-50,
 
 div[class*="absolute"] .bg-green-50 img,
 .absolute.top-full .bg-green-50 img {
-  filter: invert(18%) sepia(91%) saturate(967%) hue-rotate(130deg) brightness(91%) contrast(101%) !important;
+  filter: invert(13%) sepia(85%) saturate(3065%) hue-rotate(215deg) brightness(85%) contrast(106%) !important;
   transition: all 0.3s ease;
 }
 
-/* Hovered state: Cyprus Green (#004741) background, white icon */
+/* Hovered state: Orange (#ff6b00) background, white icon */
 .group\/item:hover div[class*="bg-green-50"],
 .group\/item:hover .bg-green-50 {
-  background-color: #004741 !important;
+  background-color: #ff6b00 !important;
 }
 
 .group\/item:hover div[class*="bg-green-50"] img,
@@ -322,7 +320,7 @@ div[class*="absolute"] .bg-green-50 img,
 }
 
 /* 7. Commodities Grid Icons Override */
-/* Default state: white circle background, Cyprus Green (#004741) icon */
+/* Default state: white circle background, Navy (#001c55) icon */
 #commodities .bg-green-50 {
   background-color: #ffffff !important;
   border: 1px solid #e8e4d5 !important;
@@ -330,15 +328,15 @@ div[class*="absolute"] .bg-green-50 img,
 }
 
 #commodities .bg-green-50 img {
-  filter: invert(18%) sepia(91%) saturate(967%) hue-rotate(130deg) brightness(91%) contrast(101%) !important;
+  filter: invert(13%) sepia(85%) saturate(3065%) hue-rotate(215deg) brightness(85%) contrast(106%) !important;
   transition: all 0.3s ease;
 }
 
-/* Hovered/Highlighted state: Cyprus Green (#004741) background, white icon */
+/* Hovered/Highlighted state: Navy (#001c55) background, white icon */
 #commodities .group:hover .bg-green-50,
 #commodities div[class*="bg-green-600"] {
-  background-color: #004741 !important;
-  border-color: #004741 !important;
+  background-color: #001c55 !important;
+  border-color: #001c55 !important;
 }
 
 #commodities .group:hover .bg-green-50 img,
@@ -354,7 +352,7 @@ div[class*="absolute"] .bg-green-50 img,
 
 #commodities .group:hover p,
 #commodities div[class*="bg-green-600"] p {
-  color: #e6f2ec !important;
+  color: #e6eefc !important;
 }
 
 #commodities .group:hover span,

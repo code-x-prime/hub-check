@@ -2,161 +2,151 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown } from 'lucide-react'
+import { Plus, X } from 'lucide-react'
+import Link from 'next/link'
 
 export interface FAQItem {
   question: string
   answer: string
 }
 
-export interface FAQCategory {
-  title: string
-  items: FAQItem[]
-}
-
-interface ReusableFAQProps {
-  title?: string
-  subtitle?: string
-  categories?: FAQCategory[]
-}
-
-const defaultCategories: FAQCategory[] = [
+const defaultItems: FAQItem[] = [
   {
-    title: 'Audit & Verification Services',
-    items: [
-      {
-        question: 'Why do banks require warehouse audits?',
-        answer: 'Banks use warehouse audits to monitor collateral, verify stock, validate warehouse information, and meet internal review needs for secured lending.'
-      },
-      {
-        question: 'What is stock verification?',
-        answer: 'Stock verification means checking the actual physical stock and quantities against records and supporting documents.'
-      },
-      {
-        question: 'What is inventory verification?',
-        answer: 'Inventory verification involves reviewing inventory records against physical stock to validate information and support warehouse assessments.'
-      },
-      {
-        question: 'How often should warehouse audits be conducted?',
-        answer: 'It depends on your organization\'s policies, operational needs, lending rules, and internal monitoring practices.'
-      }
-    ]
+    question: 'Why do banks require warehouse audits?',
+    answer: 'Banks use warehouse audits to monitor collateral, verify stock, validate warehouse information, and meet internal review needs for secured lending.'
   },
   {
-    title: 'Hubcheck Information & Operations',
-    items: [
-      {
-        question: 'Which industries does Hubcheck serve?',
-        answer: 'Hubcheck supports banks, NBFCs, and financial institutions that need independent warehouse audit and verification services.'
-      },
-      {
-        question: 'Do you provide Pan-India warehouse audit services?',
-        answer: 'Yes. Hubcheck offers warehouse audit services across multiple locations through our operational network, depending on project scope and availability.'
-      },
-      {
-        question: 'How can I get started with Hubcheck?',
-        answer: 'Just reach out to our team to discuss your warehouse audit requirements, objectives, and scope. We will suggest the right approach that fits your business needs.'
-      }
-    ]
+    question: 'What is stock verification?',
+    answer: 'Stock verification means checking the actual physical stock and quantities against records and supporting documents.'
+  },
+  {
+    question: 'What is inventory verification?',
+    answer: 'Inventory verification involves reviewing inventory records against physical stock to validate information and support warehouse assessments.'
+  },
+  {
+    question: 'How often should warehouse audits be conducted?',
+    answer: 'It depends on your organization\'s policies, operational needs, lending rules, and internal monitoring practices.'
+  },
+  {
+    question: 'Which industries does Hubcheck serve?',
+    answer: 'Hubcheck supports banks, NBFCs, and financial institutions that need independent warehouse audit and verification services.'
+  },
+  {
+    question: 'Do you provide Pan-India warehouse audit services?',
+    answer: 'Yes. Hubcheck offers warehouse audit services across multiple locations through our operational network, depending on project scope and availability.'
+  },
+  {
+    question: 'How can I get started with Hubcheck?',
+    answer: 'Just reach out to our team to discuss your warehouse audit requirements, objectives, and scope. We will suggest the right approach that fits your business needs.'
   }
 ]
 
-export default function FAQ({
-  title = 'Frequently Asked Questions',
-  subtitle = 'Find answers to common questions about our services',
-  categories = defaultCategories
-}: ReusableFAQProps) {
-  // Store expanded state using a composite key: "categoryIndex-itemIndex"
-  const [activeKey, setActiveKey] = useState<string | null>(null)
+interface FAQProps {
+  badge?: string
+  title?: string
+  items?: FAQItem[]
+}
 
-  const handleToggle = (key: string) => {
-    setActiveKey(activeKey === key ? null : key)
+export default function FAQ({
+  badge = "010 / FAQS",
+  title = "Common Questions",
+  items = defaultItems
+}: FAQProps) {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null)
+
+  const handleToggle = (idx: number) => {
+    setActiveIndex(activeIndex === idx ? null : idx)
   }
 
-  return (
-    <section id="faq" className="py-12 md:py-16 px-6 bg-gradient-to-b from-white via-[#f4fbf6] to-[#ebf7ef] overflow-hidden">
-      <div className="max-w-5xl mx-auto">
+  if (!items || items.length === 0) return null
 
-        {/* Title */}
-        <div className="mb-12">
-          <h2 className="text-3xl md:text-5xl  font-extrabold text-gray-900 tracking-tight mb-2">
-            {title}
-          </h2>
-          {subtitle && (
-            <p className="text-sm md:text-base text-gray-500 font-medium">
-              {subtitle}
-            </p>
-          )}
+  return (
+    <section id="faq" className="relative py-16 md:py-24 px-6 bg-white border-y border-gray-100 overflow-hidden text-center">
+      {/* Soft top/bottom gradients */}
+      <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-blue-100/10 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-blue-100/10 via-transparent to-transparent pointer-events-none" />
+
+      <div className="max-w-4xl mx-auto relative z-10">
+        
+        {/* Badge */}
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-50 border border-gray-150 text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#ff6b00] animate-pulse" />
+          {badge}
         </div>
 
-        {/* Categories Loop */}
-        <div className="space-y-10">
-          {categories.map((category, catIndex) => (
-            <div key={catIndex} className="w-full">
+        {/* Title */}
+        <h2 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tight leading-none mb-12">
+          {title}
+        </h2>
 
-              {/* Category Header */}
-              <div className="border-b border-gray-200 pb-4 mb-4">
-                <h3 className="text-base md:text-lg font-bold text-gray-900">
-                  {category.title}
-                </h3>
+        {/* FAQ List */}
+        <div className="space-y-4 max-w-3xl mx-auto">
+          {items.map((item, idx) => {
+            const isOpen = activeIndex === idx
+            return (
+              <div
+                key={idx}
+                className={`border rounded-2xl overflow-hidden bg-white text-left transition-all duration-300 ${
+                  isOpen 
+                    ? 'border-[#ff6b00] shadow-md shadow-orange-500/[0.04]' 
+                    : 'border-gray-150 hover:border-gray-200 shadow-xs'
+                }`}
+              >
+                <button
+                  onClick={() => handleToggle(idx)}
+                  className="w-full flex items-center justify-between p-6 text-left focus:outline-none gap-4"
+                >
+                  <div className="flex items-center gap-4 flex-grow">
+                    {/* Index Number */}
+                    <span className="text-sm font-semibold text-gray-400 font-sans w-6 flex-shrink-0">
+                      {idx + 1}
+                    </span>
+                    {/* Question text */}
+                    <span className="text-base md:text-lg font-bold text-gray-900 leading-snug">
+                      {item.question}
+                    </span>
+                  </div>
+
+                  {/* Circular Button */}
+                  <div className="flex-shrink-0">
+                    {isOpen ? (
+                      <div className="h-8 w-8 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-500 hover:text-gray-800 transition-colors duration-200 shadow-xs">
+                        <X className="h-4 w-4" />
+                      </div>
+                    ) : (
+                      <div className="h-8 w-8 rounded-full bg-black flex items-center justify-center text-white hover:bg-neutral-800 transition-colors duration-200">
+                        <Plus className="h-4 w-4" />
+                      </div>
+                    )}
+                  </div>
+                </button>
+
+                {/* Expandable Answer */}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.28, ease: 'easeInOut' }}
+                    >
+                      <div className="px-6 pb-6 pt-1 text-sm md:text-base text-gray-500 font-sans font-light leading-relaxed pl-16 border-t border-gray-50">
+                        {item.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
+            )
+          })}
+        </div>
 
-              {/* Accordion List */}
-              <div className="divide-y divide-gray-100">
-                {category.items.map((item, itemIndex) => {
-                  const itemKey = `${catIndex}-${itemIndex}`
-                  const isOpen = activeKey === itemKey
-
-                  return (
-                    <div key={itemIndex} className="py-5 w-full">
-                      <button
-                        onClick={() => handleToggle(itemKey)}
-                        className="w-full flex items-center justify-between text-left group gap-4 py-2 cursor-pointer"
-                      >
-                        <span className="font-semibold text-gray-900 text-base md:text-lg leading-snug group-hover:text-[#15803d] transition-colors duration-200">
-                          {item.question}
-                        </span>
-
-                        {/* Rounded Box Wrapper for Chevron */}
-                        <div className={`w-10 h-10 border rounded-lg flex items-center justify-center flex-shrink-0 bg-white transition-all duration-300 ${isOpen
-                          ? 'border-[#15803d]/40 shadow-sm bg-green-50/20'
-                          : 'border-gray-200 hover:border-gray-300 shadow-sm'
-                          }`}>
-                          <ChevronDown
-                            size={18}
-                            className={`text-gray-500 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#15803d]' : 'group-hover:text-gray-900'
-                              }`}
-                          />
-                        </div>
-                      </button>
-
-                      {/* Expandable Content */}
-                      <AnimatePresence initial={false}>
-                        {isOpen && (
-                          <motion.div
-                            key="content"
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.3, ease: 'easeInOut' }}
-                            className="overflow-hidden"
-                          >
-                            <div className="pt-4 pb-2 pr-12">
-                              <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-                                {item.answer}
-                              </p>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-
-                    </div>
-                  )
-                })}
-              </div>
-
-            </div>
-          ))}
+        {/* Footer Link */}
+        <div className="mt-12 text-sm text-gray-500 font-sans font-medium">
+          Have any other questions?{' '}
+          <Link href="#contact" className="text-[#ff6b00] hover:underline font-bold inline-flex items-center gap-1">
+            Contact Us <span className="text-xs">→</span>
+          </Link>
         </div>
 
       </div>

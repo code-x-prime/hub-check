@@ -14,7 +14,7 @@ export default function Services() {
       svgPath: '/icons/warehouse-audit-services.svg',
       title: 'Warehouse Audit Services',
       description: 'Independent warehouse audit services that help financial institutions improve warehouse verification, collateral visibility, stock assessment, and internal reviews through careful inspections and proper reporting.',
-      image: '/images/about/warehouse_inspection_about.png',
+      image: '/images/about/nbfc_officer.png',
       overlay: {
         title: 'Inspection Logs',
         badge: 'Audit Active',
@@ -30,7 +30,7 @@ export default function Services() {
       svgPath: '/icons/stock-audit-services.svg',
       title: 'Stock Audit Services',
       description: 'Structured stock audit services that support physical stock verification, quantity checks, document reviews, and reporting needs across different warehouse operations.',
-      image: '/images/about/stock_verification_about.png',
+      image: '/images/about/scanner_check.png',
       overlay: {
         title: 'Verified Stocks',
         badge: 'Count Verified',
@@ -46,7 +46,7 @@ export default function Services() {
       svgPath: '/icons/inventory-verification.svg',
       title: 'Inventory Verification',
       description: 'Independent inventory verification services that validate inventory records, check actual physical stock, and confirm warehouse information using clear verification methods.',
-      image: '/images/about/collateral_monitoring_about.png',
+      image: '/images/about/cta_warehouse_audit.png',
       overlay: {
         title: 'Inventory Stats',
         badge: 'Validated',
@@ -62,7 +62,7 @@ export default function Services() {
       svgPath: '/icons/warehouse-inspection.svg',
       title: 'Warehouse Inspection',
       description: 'Independent warehouse inspections that evaluate storage conditions, storage setup, documents, and overall warehouse verification requirements.',
-      image: '/images/about/due_diligence_about.png',
+      image: '/images/about/why_choose_hubcheck.png',
       overlay: {
         title: 'Inspection Check',
         badge: 'Certified',
@@ -78,7 +78,7 @@ export default function Services() {
       svgPath: '/icons/collateral-management-audit.svg',
       title: 'Collateral Management Audit',
       description: 'Collateral management audit services support collateral verification, warehouse monitoring, and information validation for financial institutions.',
-      image: '/images/about/scanner_check.png',
+      image: '/images/about/due_diligence_about.png',
       overlay: {
         title: 'Collateral Stats',
         badge: 'LTV Monitored',
@@ -115,14 +115,18 @@ export default function Services() {
   }, [activeTab, services.length])
 
   return (
-    <section id="services" className="py-12 md:py-16 px-6 bg-[#e8f7ed] border-y border-green-200/50 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section id="services" className="relative py-12 md:py-16 px-6 bg-white border-y border-gray-100 overflow-hidden">
+      {/* Soft top/bottom gradients */}
+      <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-blue-100/10 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-blue-100/10 via-transparent to-transparent pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
 
         {/* Section Header */}
         <div className="max-w-3xl mb-20 text-left">
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-6 h-1 bg-[#15803d]" />
-            <span className="text-sm font-bold uppercase tracking-[0.2em] text-[#15803d]">What We Do</span>
+            <div className="w-6 h-1 bg-[#ff6b00]" />
+            <span className="text-sm font-bold uppercase tracking-[0.2em] text-[#ff6b00]">What We Do</span>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-[1.05] mb-4">
             Our Warehouse Audit Services

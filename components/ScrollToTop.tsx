@@ -52,7 +52,7 @@ export default function ScrollToTop() {
               cx="24"
               cy="24"
               r={radius}
-              className="stroke-[#15803d] fill-none"
+              className="stroke-[#ff6b00] fill-none"
               strokeWidth="3.5"
               strokeLinecap="round"
               style={{
@@ -65,7 +65,7 @@ export default function ScrollToTop() {
           {/* Inner Arrow Icon */}
           <ArrowUp 
             size={18} 
-            className="text-[#15803d] group-hover:-translate-y-0.5 transition-transform duration-300 z-10" 
+            className="text-[#ff6b00] group-hover:-translate-y-0.5 transition-transform duration-300 z-10" 
           />
         </motion.button>
       )}

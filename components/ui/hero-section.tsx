@@ -166,7 +166,7 @@ const Navbar: React.FC<NavbarProps> = ({ logoText, navLinks, authLinks, onMenuOp
     );
 
     return (
-        <nav className="mb-6 bg-white rounded-xl relative z-10 max-w-6xl mx-auto flex items-center justify-between py-4 px-8 lg:px-12 lg:py-4 border border-gray-100 shadow-sm">
+        <nav className="mb-6 bg-white rounded-lg relative z-10 max-w-6xl mx-auto flex items-center justify-between py-4 px-8 lg:px-12 lg:py-4 border border-gray-100 shadow-sm">
             {renderLogo()}
 
             <div className="flex items-center space-x-6 text-gray-600 text-sm">
@@ -416,7 +416,7 @@ const AppDataTable: React.FC<AppDataTableProps> = ({ headers, data }) => {
     }
 
     return (
-        <div className="bg-white rounded-xl shadow-inner overflow-hidden border border-gray-200">
+        <div className="bg-white rounded-lg shadow-inner overflow-hidden border border-gray-200">
             {/* Adjusted grid columns for 5 columns */}
             <div className="grid grid-cols-[1.8fr_1.2fr_0.8fr_1fr_1.2fr] gap-4 text-sm text-gray-500 px-6 py-3 border-b border-gray-200 bg-gray-50 font-semibold uppercase tracking-wider">
                 {headers.map(header => (
@@ -494,7 +494,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ data }) => {
             {/* Pass destructured data to children */}
             <Navbar {...navbar} onMenuOpen={() => setIsMobileMenuOpen(true)} />
 
-            <div className="relative z-10 max-w-6xl mx-auto bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100">
+            <div className="relative z-10 max-w-6xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden border border-gray-100">
                 <HeroContent {...heroContent} />
                 <AppPreviewSection {...appPreview} />
             </div>

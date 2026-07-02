@@ -5,9 +5,10 @@ import Industries from '@/components/Industries'
 import Commodities from '@/components/Commodities'
 import WhyChooseUs from '@/components/WhyChooseUs'
 import Process from '@/components/Process'
-import CTABanner from '@/components/CTABanner'
 import FAQ from '@/components/FAQ'
-import ScrollToTop from '@/components/ScrollToTop'
+import CTABanner from '@/components/CTABanner'
+
+
 export default function Page() {
   return (
     <main className="min-h-screen bg-white">
@@ -20,7 +21,7 @@ export default function Page() {
       <Process />
       <CTABanner />
       <FAQ />
-      <ScrollToTop />
+
     </main>
   )
 }

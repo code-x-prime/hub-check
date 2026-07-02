@@ -116,7 +116,7 @@ function TabRail({
             aria-selected={isActive}
             onClick={() => onSelect(i)}
             className={cn(
-              "whitespace-nowrap rounded-xl px-3 py-2 text-left text-[13px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:px-4 sm:py-2.5 sm:text-sm",
+              "whitespace-nowrap rounded-lg px-3 py-2 text-left text-[13px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:px-4 sm:py-2.5 sm:text-sm",
               isActive
                 ? "bg-[#15803d]/10 font-semibold text-[#15803d] shadow-sm ring-1 ring-[#15803d]/20"
                 : "font-medium text-muted-foreground hover:bg-muted/50 hover:text-foreground",
@@ -369,7 +369,7 @@ export function PreviewSwitchHero({
                     >
                       {emailLabel}
                     </label>
-                    <div className="flex items-center gap-2 rounded-xl border border-border bg-background px-3 shadow-sm transition focus-within:border-foreground focus-within:ring-2 focus-within:ring-ring">
+                    <div className="flex items-center gap-2 rounded-lg border border-border bg-background px-3 shadow-sm transition focus-within:border-foreground focus-within:ring-2 focus-within:ring-ring">
                       <Mail className="size-5 shrink-0 text-muted-foreground" />
                       <input
                         id={emailId}

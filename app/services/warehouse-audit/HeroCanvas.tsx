@@ -79,9 +79,9 @@ export default function HeroCanvas() {
             const factor = 1 - distance / influenceRadius
             radius = 1.0 + factor * 2.5
             opacity = 0.12 + factor * 0.45
-            ctx.fillStyle = `rgba(21, 128, 61, ${opacity})`
+            ctx.fillStyle = `rgba(255, 107, 0, ${opacity})`
           } else {
-            ctx.fillStyle = `rgba(21, 128, 61, ${opacity})`
+            ctx.fillStyle = `rgba(0, 28, 85, ${opacity})`
           }
 
           ctx.beginPath()

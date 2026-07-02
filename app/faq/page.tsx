@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown, Search } from 'lucide-react'
+import { Search, Plus, X } from 'lucide-react'
 import HeroCanvas from '../services/warehouse-audit/HeroCanvas'
 
 interface FAQItem {
@@ -279,18 +279,18 @@ export default function FAQPage() {
     <main className="min-h-screen bg-white text-gray-900">
 
       {/* HERO SECTION */}
-      <section className="relative py-20 lg:py-24 overflow-hidden bg-gradient-to-br from-green-100/80 via-emerald-50/40 to-white">
-        <div className="absolute inset-0 -z-30 bg-gradient-to-br from-green-150/20 via-emerald-50/10 to-white pointer-events-none" />
+      <section className="relative py-20 lg:py-24 overflow-hidden bg-gradient-to-br from-orange-100/40 via-blue-50/50 to-[#fdfbf7]">
+        <div className="absolute inset-0 -z-30 bg-gradient-to-br from-orange-100/20 via-blue-50/30 to-[#fdfbf7] pointer-events-none" />
 
         <HeroCanvas />
 
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl text-left space-y-6">
-            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-green-200/50 bg-green-50/50 text-sm font-semibold uppercase tracking-wider text-[#15803d]">
+            <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-orange-200/50 bg-orange-50/50 text-sm font-semibold uppercase tracking-wider text-[#ff6b00]">
               Support Center
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight leading-[1.08]">
-              Frequently Asked <span className="text-[#15803d]">Questions</span>
+              Frequently Asked <span className="text-[#001c55]">Questions</span>
             </h1>
             <p className="text-base md:text-lg text-gray-600 leading-relaxed font-light font-sans">
               Search through our master collection of FAQs regarding warehouse audits, stock audits, collateral management, due diligence, and inventory verification.
@@ -300,16 +300,18 @@ export default function FAQPage() {
       </section>
 
       {/* SEARCH & ACCORDION */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
+      <section className="relative py-16 md:py-20 bg-white border-y border-gray-100 overflow-hidden">
+        <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-orange-100/10 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-orange-100/10 via-transparent to-transparent pointer-events-none" />
+        <div className="max-w-4xl mx-auto px-6 relative z-10">
 
           {/* Category Filter Tabs */}
           <div className="flex flex-wrap justify-center gap-3 mb-8">
             <button
               onClick={() => { setSelectedFilter('all'); setActiveIndex(null); }}
               className={`px-5 py-2.5 rounded-full text-sm sm:text-sm font-semibold border transition-all cursor-pointer ${selectedFilter === 'all'
-                ? 'bg-[#15803d] text-white border-transparent'
-                : 'bg-white text-gray-600 border-gray-200 hover:border-green-300'
+                ? 'bg-[#001c55] text-white border-transparent'
+                : 'bg-white text-gray-600 border-gray-200 hover:border-orange-350'
                 }`}
             >
               All FAQs
@@ -317,8 +319,8 @@ export default function FAQPage() {
             <button
               onClick={() => { setSelectedFilter('services'); setActiveIndex(null); }}
               className={`px-5 py-2.5 rounded-full text-sm sm:text-sm font-semibold border transition-all cursor-pointer ${selectedFilter === 'services'
-                ? 'bg-[#15803d] text-white border-transparent'
-                : 'bg-white text-gray-600 border-gray-200 hover:border-green-300'
+                ? 'bg-[#001c55] text-white border-transparent'
+                : 'bg-white text-gray-600 border-gray-200 hover:border-orange-350'
                 }`}
             >
               Services FAQs
@@ -326,8 +328,8 @@ export default function FAQPage() {
             <button
               onClick={() => { setSelectedFilter('industries'); setActiveIndex(null); }}
               className={`px-5 py-2.5 rounded-full text-sm sm:text-sm font-semibold border transition-all cursor-pointer ${selectedFilter === 'industries'
-                ? 'bg-[#15803d] text-white border-transparent'
-                : 'bg-white text-gray-600 border-gray-200 hover:border-green-300'
+                ? 'bg-[#001c55] text-white border-transparent'
+                : 'bg-white text-gray-600 border-gray-200 hover:border-orange-350'
                 }`}
             >
               Industries FAQs
@@ -335,8 +337,8 @@ export default function FAQPage() {
             <button
               onClick={() => { setSelectedFilter('general'); setActiveIndex(null); }}
               className={`px-5 py-2.5 rounded-full text-sm sm:text-sm font-semibold border transition-all cursor-pointer ${selectedFilter === 'general'
-                ? 'bg-[#15803d] text-white border-transparent'
-                : 'bg-white text-gray-600 border-gray-200 hover:border-green-300'
+                ? 'bg-[#001c55] text-white border-transparent'
+                : 'bg-white text-gray-600 border-gray-200 hover:border-orange-350'
                 }`}
             >
               General Operations
@@ -350,7 +352,7 @@ export default function FAQPage() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-white border border-gray-250 rounded-lg pl-12 pr-6 py-4 text-sm text-gray-800 focus:outline-none focus:border-[#15803d] shadow-sm font-sans"
+              className="w-full bg-white border border-gray-250 rounded-lg pl-12 pr-6 py-4 text-sm text-gray-800 focus:outline-none focus:border-[#ff6b00] shadow-sm font-sans"
               placeholder="Search questions, categories, or keywords..."
             />
           </div>
@@ -363,32 +365,56 @@ export default function FAQPage() {
                 return (
                   <div
                     key={idx}
-                    className="border border-gray-150 rounded-lg overflow-hidden bg-white shadow-xs text-left"
+                    className={`border rounded-2xl overflow-hidden bg-white text-left transition-all duration-300 ${
+                      isOpen 
+                        ? 'border-[#ff6b00] shadow-md shadow-orange-500/[0.04]' 
+                        : 'border-gray-150 hover:border-gray-200 shadow-xs'
+                    }`}
                   >
                     <button
                       onClick={() => handleToggle(idx)}
-                      className="w-full flex items-center justify-between p-6 text-left font-bold text-gray-900 hover:text-[#15803d] transition-colors focus:outline-none"
+                      className="w-full flex items-center justify-between p-6 text-left focus:outline-none gap-4"
                     >
-                      <div className="space-y-1 pr-4">
-                        <span className="text-[10px] font-black tracking-wider uppercase text-gray-400 bg-gray-50 px-2 py-0.5 rounded">
-                          {faq.category}
+                      <div className="flex items-center gap-4 flex-grow">
+                        {/* Index Number */}
+                        <span className="text-sm font-semibold text-gray-400 font-sans w-6 flex-shrink-0">
+                          {idx + 1}
                         </span>
-                        <h3 className="text-base sm:text-lg mt-1">{faq.question}</h3>
+                        {/* Question text */}
+                        <div className="space-y-1">
+                          <span className="text-[10px] font-black tracking-wider uppercase text-gray-400 bg-gray-50 px-2 py-0.5 rounded">
+                            {faq.category}
+                          </span>
+                          <h3 className="text-base sm:text-lg font-bold text-gray-900 leading-snug mt-1">
+                            {faq.question}
+                          </h3>
+                        </div>
                       </div>
-                      <ChevronDown
-                        className={`h-5 w-5 text-gray-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-[#15803d]' : ''}`}
-                      />
+
+                      {/* Circular Button */}
+                      <div className="flex-shrink-0">
+                        {isOpen ? (
+                          <div className="h-8 w-8 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-500 hover:text-gray-800 transition-colors duration-200 shadow-xs">
+                            <X className="h-4 w-4" />
+                          </div>
+                        ) : (
+                          <div className="h-8 w-8 rounded-full bg-black flex items-center justify-center text-white hover:bg-neutral-800 transition-colors duration-200">
+                            <Plus className="h-4 w-4" />
+                          </div>
+                        )}
+                      </div>
                     </button>
 
+                    {/* Expandable Answer */}
                     <AnimatePresence initial={false}>
                       {isOpen && (
                         <motion.div
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: 'auto', opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3, ease: 'easeInOut' }}
+                          transition={{ duration: 0.28, ease: 'easeInOut' }}
                         >
-                          <div className="px-6 pb-6 pt-1 text-sm text-gray-500 font-sans font-light leading-relaxed border-t border-gray-100/60">
+                          <div className="px-6 pb-6 pt-1 text-sm md:text-base text-gray-500 font-sans font-light leading-relaxed pl-16 border-t border-gray-50">
                             {faq.answer}
                           </div>
                         </motion.div>

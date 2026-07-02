@@ -26,14 +26,18 @@ const Industries = () => {
   }
 
   return (
-    <section id="industries" className="py-12 md:py-16 px-6 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section id="industries" className="relative py-12 md:py-16 px-6 bg-white border-y border-gray-100 overflow-hidden">
+      {/* Soft top/bottom gradients */}
+      <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-orange-100/10 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-orange-100/10 via-transparent to-transparent pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
 
         {/* Header - Staggered Bento style */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="inline-flex items-center gap-2 mb-4 justify-center">
-            <div className="w-2.5 h-2.5 rounded-full bg-[#15803d]" />
-            <span className="text-sm font-bold uppercase tracking-[0.2em] text-[#15803d]">The Industries We Serve</span>
+            <div className="w-2.5 h-2.5 rounded-full bg-[#ff6b00]" />
+            <span className="text-sm font-bold uppercase tracking-[0.2em] text-[#ff6b00]">The Industries We Serve</span>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-[1.05] mb-6">
             Independent Verification for Secured Lending
@@ -61,7 +65,7 @@ const Industries = () => {
             {/* Box 1: Banks Info Card */}
             <motion.div
               variants={itemVariants}
-              className="bg-green-50/40 border border-green-100 p-8 rounded-lg flex flex-col justify-between min-h-[220px] shadow-sm flex-grow"
+              className="bg-orange-50/20 border border-orange-100 p-8 rounded-lg flex flex-col justify-between min-h-[220px] shadow-sm flex-grow"
             >
               <div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">Banks</h3>
@@ -69,8 +73,8 @@ const Industries = () => {
                   We provide warehouse audits, collateral verification, and stock assessment support designed to support collateral monitoring, warehouse verification, and lending review requirements.
                 </p>
               </div>
-              <div className="border-t border-green-200/50 pt-4 mt-6">
-                <span className="text-sm font-bold uppercase tracking-wider text-[#15803d]">
+              <div className="border-t border-orange-200/40 pt-4 mt-6">
+                <span className="text-sm font-bold uppercase tracking-wider text-[#ff6b00]">
                   <Counter value="25+" /> Commercial Banks
                 </span>
               </div>
@@ -79,7 +83,7 @@ const Industries = () => {
             {/* Box 2: Scanner Image */}
             <motion.div
               variants={itemVariants}
-              className="relative rounded-lg overflow-hidden min-h-[260px] shadow-md border border-gray-200/50 bg-green-50"
+              className="relative rounded-lg overflow-hidden min-h-[260px] shadow-md border border-gray-200/50 bg-orange-50/10"
             >
               <Image
                 src="/images/about/scanner_check.png"
@@ -95,7 +99,7 @@ const Industries = () => {
           {/* COLUMN 2: Tall Central Card (NBFCs) */}
           <motion.div
             variants={itemVariants}
-            className="relative rounded-lg overflow-hidden min-h-[380px] lg:h-full w-full bg-green-950 p-8 md:p-10 flex flex-col justify-between text-white shadow-xl lg:min-h-[500px]"
+            className="relative rounded-lg overflow-hidden min-h-[380px] lg:h-full w-full bg-[#001c55] p-8 md:p-10 flex flex-col justify-between text-white shadow-xl lg:min-h-[500px]"
           >
             {/* Background Image underlay */}
             <Image
@@ -105,15 +109,15 @@ const Industries = () => {
               className="object-cover opacity-35"
               sizes="(max-width: 1024px) 100vw, 30vw"
             />
-            {/* Dark green gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#0a1e12]/90 via-[#0a1e12]/80 to-[#0a1e12]/95 pointer-events-none" />
+            {/* Dark navy gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#001c55]/95 via-[#001c55]/85 to-[#001c55]/95 pointer-events-none" />
 
             {/* Top Stat */}
             <div className="relative z-10">
               <span className="text-5xl md:text-6xl font-black tracking-tight leading-none text-white block">
                 <Counter value="99%" />
               </span>
-              <span className="text-sm font-bold uppercase tracking-widest text-green-300 mt-2 block">
+              <span className="text-sm font-bold uppercase tracking-widest text-orange-400 mt-2 block">
                 LTV Verification Rate
               </span>
             </div>
@@ -123,7 +127,7 @@ const Industries = () => {
               <h3 className="text-2xl font-bold tracking-tight text-white">
                 NBFCs
               </h3>
-              <p className="text-sm md:text-sm text-green-100/80 leading-relaxed font-sans font-light">
+              <p className="text-sm md:text-sm text-blue-100/80 leading-relaxed font-sans font-light">
                 Structured warehouse verification and audit services that help with lending, monitoring, and collateral review processes.
               </p>
             </div>
@@ -135,7 +139,7 @@ const Industries = () => {
             {/* Box 4: Office Files Image */}
             <motion.div
               variants={itemVariants}
-              className="relative rounded-lg overflow-hidden min-h-[260px] shadow-md border border-gray-200/50 bg-green-50"
+              className="relative rounded-lg overflow-hidden min-h-[260px] shadow-md border border-gray-200/50 bg-orange-50/10"
             >
               <Image
                 src="/images/about/audit_files.png"

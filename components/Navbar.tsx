@@ -134,12 +134,12 @@ const Navbar = () => {
                             href={dropdownItem.href}
                             className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-green-50/50 transition-colors group/item"
                           >
-                            <div className="mt-0.5 p-1.5 rounded-lg bg-green-50 text-[#15803d] group-hover/item:bg-[#15803d] transition-colors relative h-8 w-8 flex-shrink-0 flex items-center justify-center">
+                            <div className="mt-0.5 p-1 rounded-lg bg-green-50 text-[#15803d] group-hover/item:bg-[#15803d] transition-colors relative h-10 w-10 flex-shrink-0 flex items-center justify-center">
                               <Image
                                 src={dropdownItem.svgPath}
                                 alt={dropdownItem.label}
-                                width={18}
-                                height={18}
+                                width={25}
+                                height={25}
                                 className="object-contain group-hover/item:brightness-0 group-hover/item:invert transition-all duration-300"
                               />
                             </div>

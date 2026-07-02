@@ -65,15 +65,19 @@ const Process = () => {
   }
 
   return (
-    <section id="process" className="py-12 md:py-16 px-6 bg-[#f3faf5] border-y border-green-100/40 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section id="process" className="relative py-12 md:py-16 px-6 bg-white border-y border-gray-100 overflow-hidden">
+      {/* Soft top/bottom gradients */}
+      <div className="absolute top-0 inset-x-0 h-24 bg-gradient-to-b from-blue-100/10 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-blue-100/10 via-transparent to-transparent pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
 
         {/* Header - 2 Column Layout */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between border-b border-gray-100 pb-12 mb-16">
           <div className="max-w-2xl space-y-4">
             <div className="flex items-center gap-2">
-              <div className="w-6 h-1 bg-[#15803d]" />
-              <span className="text-sm font-bold uppercase tracking-[0.2em] text-[#15803d]">How It Works</span>
+              <div className="w-6 h-1 bg-[#ff6b00]" />
+              <span className="text-sm font-bold uppercase tracking-[0.2em] text-[#001c55]">How It Works</span>
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-[1.05]">
               Our Audit Process
@@ -98,7 +102,7 @@ const Process = () => {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="relative rounded-lg overflow-hidden min-h-[220px] sm:min-h-[280px] flex items-center justify-between p-8 md:p-10 text-white shadow-lg group bg-green-950"
+              className="relative rounded-lg overflow-hidden min-h-[220px] sm:min-h-[280px] flex items-center justify-between p-8 md:p-10 text-white shadow-lg group bg-[#001c55]"
             >
               {/* Background Image */}
               <div
@@ -107,7 +111,7 @@ const Process = () => {
               />
 
               {/* Tint overlay for readability */}
-              <div className="absolute inset-0 bg-[#0c2214]/80 group-hover:bg-[#0c2214]/75 transition-colors duration-300 pointer-events-none" />
+              <div className="absolute inset-0 bg-[#001c55]/65 group-hover:bg-[#001c55]/55 transition-colors duration-300 pointer-events-none" />
 
               {/* Giant Outline/Translucent Number - Left (1/3 size) */}
               <div className="text-7xl sm:text-9xl font-black text-white/10 select-none relative z-10 font-sans tracking-tighter leading-none pr-4">
@@ -119,7 +123,7 @@ const Process = () => {
                 <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug">
                   {step.title}
                 </h3>
-                <p className="text-sm sm:text-sm text-green-50/80 leading-relaxed font-light font-sans">
+                <p className="text-sm sm:text-sm text-blue-50/80 leading-relaxed font-light font-sans">
                   {step.description}
                 </p>
               </div>
@@ -131,7 +135,7 @@ const Process = () => {
         {/* Bottom Banner Row */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-t border-gray-100 pt-12 gap-6">
           <div className="space-y-1">
-            <h4 className="text-sm font-bold uppercase tracking-widest text-[#15803d]">Ready to get started?</h4>
+            <h4 className="text-sm font-bold uppercase tracking-widest text-[#ff6b00]">Ready to get started?</h4>
             <p className="text-sm text-gray-500 font-medium">
               Simple onboarding, direct communication, and rapid turnaround.
             </p>

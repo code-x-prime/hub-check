@@ -18,6 +18,7 @@ const jost = localFont({
 
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import ScrollToTop from '@/components/ScrollToTop'
 
 
 
@@ -43,6 +44,7 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         <Navbar />
         {children}
+        <ScrollToTop />
         <Footer />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
