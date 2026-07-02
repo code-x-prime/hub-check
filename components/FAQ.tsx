@@ -144,7 +144,7 @@ export default function FAQ({
         {/* Footer Link */}
         <div className="mt-12 text-sm text-gray-500 font-sans font-medium">
           Have any other questions?{' '}
-          <Link href="#contact" className="text-[#ff6b00] hover:underline font-bold inline-flex items-center gap-1">
+          <Link href="/contact" className="text-[#ff6b00] hover:underline font-bold inline-flex items-center gap-1">
             Contact Us <span className="text-xs">→</span>
           </Link>
         </div>

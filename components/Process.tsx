@@ -140,7 +140,7 @@ const Process = () => {
               Simple onboarding, direct communication, and rapid turnaround.
             </p>
           </div>
-          <FancyButton href="#contact">
+          <FancyButton href="/contact">
             Book a Consultation
           </FancyButton>
         </div>

@@ -21,7 +21,7 @@ const milestones = [
     desc: 'We’ve grown our team and expanded our reach to support warehouse-backed lending portfolios across the country.'
   },
   {
-    year: 'Quality & Security',
+    year: 'Quality & Information Security',
     title: 'Industry Certifications',
     desc: 'We achieved ISO 9001 for quality management, ISO 27001 for information security, and completed SOC 2 Audit requirements to maintain high standards in everything we do.'
   },
@@ -308,7 +308,7 @@ export default function AboutPage() {
                   Certifications <br />& Compliance
                 </h2>
                 <p className="text-sm text-blue-100/80 leading-relaxed font-sans font-light">
-                  We take our standards seriously because our clients do too. These certifications reflect the quality and safety of how we work.
+                  We take our standards seriously because our clients do too. These certifications reflect the way we work:
                 </p>
               </div>
             </div>

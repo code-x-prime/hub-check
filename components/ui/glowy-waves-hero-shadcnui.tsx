@@ -504,7 +504,7 @@ export function GlowyWavesHero({ showWaves = true }: GlowyWavesHeroProps) {
             variants={itemVariants}
             className="mb-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
-            <FancyButton href="#contact" className="px-8 py-3.5">
+            <FancyButton href="/contact" className="px-8 py-3.5">
               Book a Consultation
             </FancyButton>
             <FancyButton

@@ -102,7 +102,7 @@ export default function About() {
               ))}
             </div>
 
-            <FancyButton href="#contact">
+            <FancyButton href="/contact">
               Book a Consultation
             </FancyButton>
           </div>

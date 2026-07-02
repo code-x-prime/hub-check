@@ -47,7 +47,7 @@ const CTABanner = () => {
             viewport={{ once: true }}
           >
             <FancyButton
-              href="#contact"
+              href="/contact"
               variant="secondary"
             >
               Contact Hubcheck Today
