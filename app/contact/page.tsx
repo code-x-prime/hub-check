@@ -1,9 +1,70 @@
 'use client'
 
-import { MapPin, Phone, Mail, Clock } from 'lucide-react'
+import { useState } from 'react'
+import { MapPin, Phone, Mail, Clock, Loader2, CheckCircle2, AlertCircle } from 'lucide-react'
 import HeroCanvas from '../services/warehouse-audit/HeroCanvas'
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_BRIGHTO_API_URL || 'http://localhost:3001'
+
 export default function ContactPage() {
+  const [form, setForm] = useState({
+    name: '',
+    organization: '',
+    email: '',
+    phone: '',
+    service: 'Warehouse Audit Services',
+    message: ''
+  })
+  
+  const [submitting, setSubmitting] = useState(false)
+  const [success, setSuccess] = useState(false)
+  const [error, setError] = useState('')
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setSubmitting(true)
+    setError('')
+    setSuccess(false)
+
+    try {
+      // Map inputs to Brighto API expectations
+      const payload = {
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        subject: `[Hubcheck] Inquiry for ${form.service}`,
+        message: `Organization: ${form.organization || 'Not Specified'}\nService: ${form.service}\nSource Site: Hubcheck\n\nMessage:\n${form.message}`
+      }
+
+      const res = await fetch(`${API_BASE_URL}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      })
+
+      const data = await res.json()
+      if (res.ok && data.success) {
+        setSuccess(true)
+        setForm({
+          name: '',
+          organization: '',
+          email: '',
+          phone: '',
+          service: 'Warehouse Audit Services',
+          message: ''
+        })
+      } else {
+        setError(data.error || 'Failed to send message. Please try again.')
+      }
+    } catch {
+      setError('Network error. Please check your connection and try again.')
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
   return (
     <main className="min-h-screen bg-white text-gray-900">
 
@@ -109,76 +170,122 @@ export default function ContactPage() {
                 Fill in the details below, and our warehouse diligence team will contact you within 24 business hours.
               </p>
 
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-1">
-                    <label className="text-sm font-bold uppercase text-gray-400">Full Name</label>
-                    <input
-                      type="text"
-                      className="w-full bg-white border border-gray-250 rounded-lg px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:border-[#ff6b00] font-sans"
-                      placeholder="John Doe"
-                    />
+              {success ? (
+                <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-6 text-center space-y-3">
+                  <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto text-emerald-600">
+                    <CheckCircle2 size={24} />
                   </div>
-                  <div className="space-y-1">
-                    <label className="text-sm font-bold uppercase text-gray-400">Organization</label>
-                    <input
-                      type="text"
-                      className="w-full bg-white border border-gray-250 rounded-lg px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:border-[#ff6b00] font-sans"
-                      placeholder="Bank / Institution Name"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-1">
-                    <label className="text-sm font-bold uppercase text-gray-400">Email Address</label>
-                    <input
-                      type="email"
-                      className="w-full bg-white border border-gray-250 rounded-lg px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:border-[#ff6b00] font-sans"
-                      placeholder="john@organization.com"
-                      suppressHydrationWarning
-                    />
-                  </div>
-                  <div className="space-y-1">
-                    <label className="text-sm font-bold uppercase text-gray-400">Phone Number</label>
-                    <input
-                      type="tel"
-                      className="w-full bg-white border border-gray-250 rounded-lg px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:border-[#ff6b00] font-sans"
-                      placeholder="9876543210"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-1">
-                  <label className="text-sm font-bold uppercase text-gray-400">Service Required</label>
-                  <select
-                    className="w-full bg-white border border-gray-250 rounded-lg px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:border-[#ff6b00] font-sans"
+                  <h4 className="text-lg font-bold text-emerald-900">Inquiry Submitted Successfully!</h4>
+                  <p className="text-sm text-emerald-700 font-sans">
+                    Thank you for reaching out. We have received your message and will get back to you shortly.
+                  </p>
+                  <button
+                    onClick={() => setSuccess(false)}
+                    className="mt-2 text-xs font-bold text-[#001c55] hover:underline cursor-pointer"
                   >
-                    <option>Warehouse Audit Services</option>
-                    <option>Stock Audit Services</option>
-                    <option>Inventory Verification</option>
-                    <option>Warehouse Inspection</option>
-                    <option>Collateral Management Audit</option>
-                    <option>Warehouse Due Diligence</option>
-                  </select>
+                    Send another inquiry
+                  </button>
                 </div>
+              ) : (
+                <form className="space-y-4" onSubmit={handleSubmit}>
+                  {error && (
+                    <div className="bg-rose-50 border border-rose-100 rounded-xl p-4 text-rose-800 text-xs font-semibold flex items-start gap-2.5">
+                      <AlertCircle className="w-4 h-4 text-rose-600 mt-0.5 flex-shrink-0" />
+                      <div>{error}</div>
+                    </div>
+                  )}
 
-                <div className="space-y-1">
-                  <label className="text-sm font-bold uppercase text-gray-400">Your Message</label>
-                  <textarea
-                    rows={4}
-                    className="w-full bg-white border border-gray-250 rounded-lg px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:border-[#ff6b00] font-sans"
-                    placeholder="Provide details about your audit or inspection requirements..."
-                  ></textarea>
-                </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-1">
+                      <label className="text-sm font-bold uppercase text-gray-400">Full Name *</label>
+                      <input
+                        type="text"
+                        required
+                        value={form.name}
+                        onChange={(e) => setForm({ ...form, name: e.target.value })}
+                        className="w-full bg-white border border-gray-250 rounded-lg px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:border-[#ff6b00] font-sans"
+                        placeholder="John Doe"
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <label className="text-sm font-bold uppercase text-gray-400">Organization</label>
+                      <input
+                        type="text"
+                        value={form.organization}
+                        onChange={(e) => setForm({ ...form, organization: e.target.value })}
+                        className="w-full bg-white border border-gray-250 rounded-lg px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:border-[#ff6b00] font-sans"
+                        placeholder="Bank / Institution Name"
+                      />
+                    </div>
+                  </div>
 
-                <button
-                  type="submit"
-                  className="w-full bg-[#001c55] text-white py-3 rounded-lg font-bold text-sm hover:bg-[#ff6b00] transition-colors cursor-pointer"
-                >
-                  Submit Inquiry
-                </button>
-              </form>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-1">
+                      <label className="text-sm font-bold uppercase text-gray-400">Email Address *</label>
+                      <input
+                        type="email"
+                        required
+                        value={form.email}
+                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        className="w-full bg-white border border-gray-250 rounded-lg px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:border-[#ff6b00] font-sans"
+                        placeholder="john@organization.com"
+                      />
+                    </div>
+                    <div className="space-y-1">
+                      <label className="text-sm font-bold uppercase text-gray-400">Phone Number</label>
+                      <input
+                        type="tel"
+                        value={form.phone}
+                        onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                        className="w-full bg-white border border-gray-250 rounded-lg px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:border-[#ff6b00] font-sans"
+                        placeholder="9876543210"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-sm font-bold uppercase text-gray-400">Service Required</label>
+                    <select
+                      value={form.service}
+                      onChange={(e) => setForm({ ...form, service: e.target.value })}
+                      className="w-full bg-white border border-gray-250 rounded-lg px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:border-[#ff6b00] font-sans"
+                    >
+                      <option>Warehouse Audit Services</option>
+                      <option>Stock Audit Services</option>
+                      <option>Inventory Verification</option>
+                      <option>Warehouse Inspection</option>
+                      <option>Collateral Management Audit</option>
+                      <option>Warehouse Due Diligence</option>
+                    </select>
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-sm font-bold uppercase text-gray-400">Your Message *</label>
+                    <textarea
+                      required
+                      value={form.message}
+                      onChange={(e) => setForm({ ...form, message: e.target.value })}
+                      rows={4}
+                      className="w-full bg-white border border-gray-250 rounded-lg px-4 py-2.5 text-sm text-gray-800 focus:outline-none focus:border-[#ff6b00] font-sans"
+                      placeholder="Provide details about your audit or inspection requirements..."
+                    ></textarea>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="w-full bg-[#001c55] text-white py-3 rounded-lg font-bold text-sm hover:bg-[#ff6b00] disabled:opacity-50 disabled:hover:bg-[#001c55] transition-colors cursor-pointer flex items-center justify-center gap-2"
+                  >
+                    {submitting ? (
+                      <>
+                        <Loader2 size={16} className="animate-spin" /> Submitting...
+                      </>
+                    ) : (
+                      'Submit Inquiry'
+                    )}
+                  </button>
+                </form>
+              )}
             </div>
 
           </div>

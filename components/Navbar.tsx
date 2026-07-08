@@ -82,6 +82,7 @@ const Navbar = () => {
     { label: 'About', href: '/about' },
     { label: 'Services', isDropdown: true, dropdownItems: servicesDropdown },
     { label: 'Industries', isDropdown: true, dropdownItems: industriesDropdown },
+    { label: 'Career', href: '/career' },
     { label: 'FAQ', href: '/faq' },
     { label: 'Contact', href: '/contact' }
   ]

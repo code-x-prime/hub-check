@@ -19,6 +19,7 @@ const Footer = () => {
         { label: 'For Banks', href: '/industries/banks' },
         { label: 'For NBFCs', href: '/industries/nbfcs' },
         { label: 'For MNCs', href: '/industries/mnc' },
+        { label: 'Career', href: '/career' },
         { label: 'FAQ', href: '/faq' }
       ]
     },
