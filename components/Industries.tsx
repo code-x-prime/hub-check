@@ -43,7 +43,7 @@ const Industries = () => {
             Independent Verification for Secured Lending
           </h2>
           <p className="text-base md:text-lg text-gray-500 font-medium leading-relaxed max-w-2xl mx-auto">
-            Providing banks, NBFCs, and financial institutions with structured warehouse audit services to strengthen risk monitoring.
+            Providing banks, NBFCs, and MNCs with structured warehouse audit services to strengthen risk monitoring.
           </p>
         </div>
 
@@ -156,7 +156,7 @@ const Industries = () => {
               className="bg-gray-50 border border-gray-100 p-8 rounded-lg flex flex-col justify-between min-h-[220px] shadow-sm flex-grow"
             >
               <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Financial Institutions</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">MNCs</h3>
                 <p className="text-sm text-gray-500 leading-relaxed font-sans font-light">
                   Independent warehouse audit and verification services that strengthen information validation and risk review frameworks.
                 </p>

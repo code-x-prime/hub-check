@@ -70,10 +70,10 @@ const Navbar = () => {
       desc: 'Tailored warehouse monitoring and secured financing reviews.'
     },
     {
-      label: 'Financial Institutions',
-      href: '/industries/financial-institutions',
+      label: 'MNCs',
+      href: '/industries/mnc',
       svgPath: '/icons/experience-in-warehouse-finance.svg',
-      desc: 'Warehouse audits and collateral management for finance sectors.'
+      desc: 'Warehouse audits and collateral management for MNCs.'
     }
   ]
 

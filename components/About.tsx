@@ -82,7 +82,7 @@ export default function About() {
                 Inaccurate warehouse records, inconsistent stock information, and limited collateral visibility can create problems in lending, monitoring, and risk assessment.
               </p>
               <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                Hubcheck is an ISO 27001-certified, ISO 9001-certified, and SOC 2 Audited company offering Warehouse Audit & Verification Partner services that work with banks, NBFCs, and financial institutions, providing structured Warehouse Audit Services focused on stock and inventory verification, warehouse inspections, collateral management audits, and warehouse due diligence.
+                Hubcheck is an ISO 27001-certified, ISO 9001-certified, and SOC 2 Audited company offering Warehouse Audit & Verification Partner services that work with banks, NBFCs, and MNCs, providing structured Warehouse Audit Services focused on stock and inventory verification, warehouse inspections, collateral management audits, and warehouse due diligence.
               </p>
               <p className="text-base md:text-lg text-gray-600 leading-relaxed">
                 We combine independent verification, on-ground physical inspections, document reviews, and clear reports to help organizations gain better visibility and strengthen their internal review systems through consistent, process-driven warehouse audit services.

@@ -29,7 +29,7 @@ const defaultItems: FAQItem[] = [
   },
   {
     question: 'Which industries does Hubcheck serve?',
-    answer: 'Hubcheck supports banks, NBFCs, and financial institutions that need independent warehouse audit and verification services.'
+    answer: 'Hubcheck supports banks, NBFCs, and MNCs that need independent warehouse audit and verification services.'
   },
   {
     question: 'Do you provide Pan-India warehouse audit services?',

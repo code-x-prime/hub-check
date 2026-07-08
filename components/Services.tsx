@@ -13,7 +13,7 @@ export default function Services() {
       id: 0,
       svgPath: '/icons/warehouse-audit-services.svg',
       title: 'Warehouse Audit Services',
-      description: 'Independent warehouse audit services that help financial institutions improve warehouse verification, collateral visibility, stock assessment, and internal reviews through careful inspections and proper reporting.',
+      description: 'Independent warehouse audit services that help MNCs improve warehouse verification, collateral visibility, stock assessment, and internal reviews through careful inspections and proper reporting.',
       image: '/images/about/nbfc_officer.png',
       overlay: {
         title: 'Inspection Logs',
@@ -77,7 +77,7 @@ export default function Services() {
       id: 4,
       svgPath: '/icons/collateral-management-audit.svg',
       title: 'Collateral Management Audit',
-      description: 'Collateral management audit services support collateral verification, warehouse monitoring, and information validation for financial institutions.',
+      description: 'Collateral management audit services support collateral verification, warehouse monitoring, and information validation for MNCs.',
       image: '/images/about/due_diligence_about.png',
       overlay: {
         title: 'Collateral Stats',

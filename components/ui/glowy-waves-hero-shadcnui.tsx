@@ -497,7 +497,7 @@ export function GlowyWavesHero({ showWaves = true }: GlowyWavesHeroProps) {
             variants={itemVariants}
             className="mx-auto mb-10 max-w-4xl text-base text-gray-600 md:text-lg leading-relaxed"
           >
-            Hidden warehouse risks can affect lending decisions, collateral monitoring, and operational oversight. As India's trusted partner for Warehouse Audit Services since 2015, Hubcheck delivers independent warehouse inspections, physical verifications, documentation reviews, and structured reporting to help financial institutions strengthen warehouse visibility and validate information.
+            Hidden warehouse risks can affect lending decisions, collateral monitoring, and operational oversight. As India's trusted partner for Warehouse Audit Services since 2015, Hubcheck delivers independent warehouse inspections, physical verifications, documentation reviews, and structured reporting to help MNCs strengthen warehouse visibility and validate information.
           </motion.p>
 
           <motion.div

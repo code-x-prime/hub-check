@@ -24,7 +24,7 @@ import ScrollToTop from '@/components/ScrollToTop'
 
 export const metadata: Metadata = {
   title: 'Hubcheck | India Trusted Warehouse Audit & Verification Partner',
-  description: 'Independent warehouse audit services for banks, NBFCs, and financial institutions. Stock verification, inventory audits, collateral monitoring, and more.',
+  description: 'Independent warehouse audit services for banks, NBFCs, and MNCs. Stock verification, inventory audits, collateral monitoring, and more.',
 }
 
 export const viewport: Viewport = {

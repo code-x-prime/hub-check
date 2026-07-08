@@ -18,7 +18,7 @@ const Footer = () => {
         { label: 'Why Us', href: '/#why' },
         { label: 'For Banks', href: '/industries/banks' },
         { label: 'For NBFCs', href: '/industries/nbfcs' },
-        { label: 'For Financial Inst.', href: '/industries/financial-institutions' },
+        { label: 'For MNCs', href: '/industries/mnc' },
         { label: 'FAQ', href: '/faq' }
       ]
     },
