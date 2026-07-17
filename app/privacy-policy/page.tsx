@@ -142,7 +142,7 @@ export default function PrivacyPolicyPage() {
               </ul>
               <p className="font-semibold">Third-Party Services Used:</p>
               <ul className="list-disc pl-6 space-y-2">
-                <li><strong>Vercel:</strong> Website hosting and deployment.</li>
+                <li><strong>Hostinger VPS:</strong> Website hosting and deployment. Data processed: Usage data, IP addresses. Stored in: Global CDN.</li>
               </ul>
             </div>
 
