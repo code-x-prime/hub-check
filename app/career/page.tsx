@@ -1,11 +1,13 @@
 'use client'
 
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react'
+import Link from 'next/link'
 import {
   MapPin, Briefcase, Clock, Search, X, Upload, Send,
   CheckCircle2, AlertCircle, Loader2, ChevronLeft, ChevronRight,
   ArrowRight, Sparkles, User, Mail, Phone, FileText
 } from 'lucide-react'
+import { jobApplicationSchema, validateFileUpload } from '@/lib/validation'
 
 interface Job {
   id: string
@@ -18,6 +20,10 @@ interface Job {
   requirements: string
   isActive: boolean
   createdAt: string
+}
+
+type FormErrors = {
+  [key: string]: string
 }
 
 const JOBS_PER_PAGE = 6
@@ -45,7 +51,15 @@ export default function CareerPage() {
   const [applying, setApplying] = useState(false)
   const [applied, setApplied] = useState(false)
   const [applyError, setApplyError] = useState('')
-  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })
+  const [fieldErrors, setFieldErrors] = useState<FormErrors>({})
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+    consent: false,
+    website: '',
+  })
   const [resume, setResume] = useState<File | null>(null)
   const [dragActive, setDragActive] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -104,7 +118,15 @@ export default function CareerPage() {
     setShowApply(true)
     setApplied(false)
     setApplyError('')
-    setForm({ name: '', email: '', phone: '', message: '' })
+    setFieldErrors({})
+    setForm({
+      name: '',
+      email: '',
+      phone: '',
+      message: '',
+      consent: false,
+      website: '',
+    })
     setResume(null)
   }
 
@@ -135,24 +157,62 @@ export default function CareerPage() {
   }
 
   const validateAndSetFile = (file: File) => {
-    if (file.size > 5 * 1024 * 1024) {
-      setApplyError('File size must be less than 5MB')
-      return
-    }
-    const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document']
-    if (!allowedTypes.includes(file.type)) {
-      setApplyError('Only PDF or DOCX files are allowed')
+    const result = validateFileUpload(file)
+    if (!result.valid) {
+      setApplyError(result.error || 'Invalid file')
       return
     }
     setApplyError('')
     setResume(file)
   }
 
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, type } = e.target
+    const checked = (e.target as HTMLInputElement).checked
+    setForm((prev) => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value,
+    }))
+    if (fieldErrors[name]) {
+      setFieldErrors((prev) => {
+        const next = { ...prev }
+        delete next[name]
+        return next
+      })
+    }
+  }
+
   const handleApply = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!resume || !selectedJob) return
-    setApplying(true)
+
+    if (form.website) {
+      return
+    }
+
+    setFieldErrors({})
     setApplyError('')
+
+    const result = jobApplicationSchema.safeParse({
+      name: form.name,
+      email: form.email,
+      phone: form.phone,
+      message: form.message,
+      consent: form.consent,
+      website: form.website,
+    })
+
+    if (!result.success) {
+      const errors: FormErrors = {}
+      result.error.issues.forEach((issue) => {
+        const field = issue.path[0] as string
+        errors[field] = issue.message
+      })
+      setFieldErrors(errors)
+      return
+    }
+
+    setApplying(true)
 
     try {
       const formData = new FormData()
@@ -296,7 +356,7 @@ export default function CareerPage() {
                   We don&apos;t have any open positions matching your filters right now. You can send us your resume directly.
                 </p>
                 <a
-                  href="mailto:info@hubcheck.com?subject=Job%20Application%20-%20General"
+                  href="mailto:Support@brightoindia.com?subject=Job%20Application%20-%20General"
                   className="px-5 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-xl font-bold transition-all text-sm inline-flex items-center gap-2"
                 >
                   Submit Resume Directly <ArrowRight className="w-4 h-4" />
@@ -441,72 +501,128 @@ export default function CareerPage() {
                     </div>
                   )}
 
+                  {/* Honeypot - Hidden */}
+                  <div className="absolute -left-[9999px] opacity-0" aria-hidden="true">
+                    <input
+                      type="text"
+                      name="website"
+                      value={form.website}
+                      onChange={handleFormChange}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
+
                   {/* Name */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block">
+                    <label htmlFor="apply-name" className="text-xs font-bold text-slate-600 uppercase tracking-wider block">
                       Full Name *
                     </label>
                     <div className="relative">
                       <input
+                        id="apply-name"
                         type="text"
+                        name="name"
                         required
                         value={form.name}
-                        onChange={(e) => setForm({ ...form, name: e.target.value })}
+                        onChange={handleFormChange}
                         placeholder="John Doe"
-                        className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 focus:border-green-600 focus:bg-white rounded-xl focus:outline-none transition-all text-sm text-slate-700"
+                        aria-invalid={!!fieldErrors.name}
+                        aria-describedby={fieldErrors.name ? 'apply-name-error' : undefined}
+                        className={`w-full pl-10 pr-4 py-2 bg-slate-50 border rounded-xl focus:bg-white focus:outline-none transition-all text-sm text-slate-700 ${
+                          fieldErrors.name
+                            ? 'border-rose-400 focus:border-rose-600'
+                            : 'border-slate-200 focus:border-green-600'
+                        }`}
                       />
                       <User className="absolute left-3.5 top-2.5 w-4.5 h-4.5 text-slate-400" />
                     </div>
+                    {fieldErrors.name && (
+                      <p id="apply-name-error" className="text-xs text-rose-600 mt-1">{fieldErrors.name}</p>
+                    )}
                   </div>
 
                   {/* Email */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block">
+                    <label htmlFor="apply-email" className="text-xs font-bold text-slate-600 uppercase tracking-wider block">
                       Email Address *
                     </label>
                     <div className="relative">
                       <input
+                        id="apply-email"
                         type="email"
+                        name="email"
                         required
                         value={form.email}
-                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        onChange={handleFormChange}
                         placeholder="john@example.com"
-                        className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 focus:border-green-600 focus:bg-white rounded-xl focus:outline-none transition-all text-sm text-slate-700"
+                        aria-invalid={!!fieldErrors.email}
+                        aria-describedby={fieldErrors.email ? 'apply-email-error' : undefined}
+                        className={`w-full pl-10 pr-4 py-2 bg-slate-50 border rounded-xl focus:bg-white focus:outline-none transition-all text-sm text-slate-700 ${
+                          fieldErrors.email
+                            ? 'border-rose-400 focus:border-rose-600'
+                            : 'border-slate-200 focus:border-green-600'
+                        }`}
                       />
                       <Mail className="absolute left-3.5 top-2.5 w-4.5 h-4.5 text-slate-400" />
                     </div>
+                    {fieldErrors.email && (
+                      <p id="apply-email-error" className="text-xs text-rose-600 mt-1">{fieldErrors.email}</p>
+                    )}
                   </div>
 
                   {/* Phone */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block">
+                    <label htmlFor="apply-phone" className="text-xs font-bold text-slate-600 uppercase tracking-wider block">
                       Phone Number *
                     </label>
                     <div className="relative">
                       <input
+                        id="apply-phone"
                         type="tel"
+                        name="phone"
                         required
                         value={form.phone}
-                        onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                        onChange={handleFormChange}
                         placeholder="+91 9876543210"
-                        className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 focus:border-green-600 focus:bg-white rounded-xl focus:outline-none transition-all text-sm text-slate-700"
+                        aria-invalid={!!fieldErrors.phone}
+                        aria-describedby={fieldErrors.phone ? 'apply-phone-error' : undefined}
+                        className={`w-full pl-10 pr-4 py-2 bg-slate-50 border rounded-xl focus:bg-white focus:outline-none transition-all text-sm text-slate-700 ${
+                          fieldErrors.phone
+                            ? 'border-rose-400 focus:border-rose-600'
+                            : 'border-slate-200 focus:border-green-600'
+                        }`}
                       />
                       <Phone className="absolute left-3.5 top-2.5 w-4.5 h-4.5 text-slate-400" />
                     </div>
+                    {fieldErrors.phone && (
+                      <p id="apply-phone-error" className="text-xs text-rose-600 mt-1">{fieldErrors.phone}</p>
+                    )}
                   </div>
 
                   {/* Message */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-600 uppercase tracking-wider block">
+                    <label htmlFor="apply-message" className="text-xs font-bold text-slate-600 uppercase tracking-wider block">
                       Why are you a good fit? (Optional)
                     </label>
                     <textarea
+                      id="apply-message"
+                      name="message"
                       value={form.message}
-                      onChange={(e) => setForm({ ...form, message: e.target.value })}
+                      onChange={handleFormChange}
                       placeholder="Tell us briefly about your experience..."
                       rows={3}
-                      className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 focus:border-green-600 focus:bg-white rounded-xl focus:outline-none transition-all text-sm text-slate-700 resize-none"
+                      aria-invalid={!!fieldErrors.message}
+                      aria-describedby={fieldErrors.message ? 'apply-message-error' : undefined}
+                      className={`w-full px-4 py-2.5 bg-slate-50 border rounded-xl focus:bg-white focus:outline-none transition-all text-sm text-slate-700 resize-none ${
+                        fieldErrors.message
+                          ? 'border-rose-400 focus:border-rose-600'
+                          : 'border-slate-200 focus:border-green-600'
+                      }`}
                     />
+                    {fieldErrors.message && (
+                      <p id="apply-message-error" className="text-xs text-rose-600 mt-1">{fieldErrors.message}</p>
+                    )}
                   </div>
 
                   {/* Resume Upload */}
@@ -565,6 +681,48 @@ export default function CareerPage() {
                     </div>
                   </div>
 
+                  {/* DPDP Consent Checkbox */}
+                  <div className="space-y-2">
+                    <div className="flex items-start gap-3">
+                      <input
+                        type="checkbox"
+                        name="consent"
+                        id="apply-consent"
+                        checked={form.consent}
+                        onChange={handleFormChange}
+                        aria-invalid={!!fieldErrors.consent}
+                        aria-describedby={fieldErrors.consent ? 'apply-consent-error' : 'apply-consent-desc'}
+                        className="mt-0.5 h-4 w-4 rounded border-slate-300 text-green-600 focus:ring-green-600 cursor-pointer"
+                      />
+                      <label htmlFor="apply-consent" className="text-xs text-slate-600 leading-relaxed cursor-pointer">
+                        I consent to the processing of my personal data in accordance with the{' '}
+                        <Link href="/privacy-policy" target="_blank" className="text-green-700 underline hover:text-green-800">
+                          Privacy Policy
+                        </Link>
+                        . I understand that my data will be used solely for recruitment purposes as outlined under the Digital Personal Data Protection (DPDP) Act, 2023. *
+                      </label>
+                    </div>
+                    {fieldErrors.consent && (
+                      <p id="apply-consent-error" className="text-xs text-rose-600">{fieldErrors.consent}</p>
+                    )}
+                    <p id="apply-consent-desc" className="sr-only">
+                      You must consent to the Privacy Policy before submitting your application
+                    </p>
+                  </div>
+
+                  {/* Privacy Links */}
+                  <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-400">
+                    <Link href="/privacy-policy" target="_blank" className="hover:text-slate-600 underline">
+                      Privacy Policy
+                    </Link>
+                    <Link href="/terms-of-use" target="_blank" className="hover:text-slate-600 underline">
+                      Terms of Use
+                    </Link>
+                    <a href="mailto:Support@brightoindia.com?subject=Data%20Deletion%20Request" className="hover:text-slate-600 underline">
+                      Data Deletion Request
+                    </a>
+                  </div>
+
                   {/* Submit Button */}
                   <div className="pt-4 border-t border-slate-200 mt-6 flex justify-end gap-3">
                     <button
@@ -576,7 +734,7 @@ export default function CareerPage() {
                     </button>
                     <button
                       type="submit"
-                      disabled={applying || !resume}
+                      disabled={applying || !resume || !form.consent}
                       className="px-6 py-2.5 bg-green-700 hover:bg-green-800 disabled:opacity-50 text-white rounded-xl text-sm font-bold tracking-wide transition-all flex items-center gap-2 cursor-pointer shadow-sm"
                     >
                       {applying ? (

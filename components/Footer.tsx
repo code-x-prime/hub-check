@@ -10,7 +10,7 @@ const Footer = () => {
   const footerColumns = [
     {
       socialName: 'LinkedIn',
-      socialLink: 'https://linkedin.com',
+      socialLink: 'https://www.linkedin.com/company/brighto-credit-information-pvt.-ltd./',
       title: 'ABOUT US',
       links: [
         { label: 'Home', href: '/' },
@@ -24,8 +24,8 @@ const Footer = () => {
       ]
     },
     {
-      socialName: 'Facebook',
-      socialLink: 'https://facebook.com',
+      socialName: '',
+      socialLink: '',
       title: 'SERVICES',
       links: [
         { label: 'Warehouse Audit', href: '/services/warehouse-audit' },
@@ -37,18 +37,18 @@ const Footer = () => {
       ]
     },
     {
-      socialName: 'Twitter',
-      socialLink: 'https://twitter.com',
+      socialName: '',
+      socialLink: '',
       title: 'CONTACT INFO',
       links: [
-        { label: 'Call: +91-7838484441', href: 'tel:+917838484441' },
-        { label: 'Email: info@hubcheck.com', href: 'mailto:info@hubcheck.com' },
+        { label: 'Call: +91-9311463901', href: 'tel:+919311463901' },
+        { label: 'Email: Support@brightoindia.com', href: 'mailto:Support@brightoindia.com' },
         { label: 'Location: C-83, Sector-2, Noida', href: '/contact' }
       ]
     },
     {
-      socialName: 'Instagram',
-      socialLink: 'https://instagram.com',
+      socialName: '',
+      socialLink: '',
       title: 'LEGAL',
       links: [
         { label: 'Privacy Policy', href: '/privacy-policy' },
@@ -68,18 +68,24 @@ const Footer = () => {
           <div key={index} className="flex flex-col">
 
             {/* Social Header */}
-            <a
-              href={col.socialLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-between font-bold text-gray-900 hover:text-[#15803d] px-6 py-6 border-b border-gray-200 group transition-colors duration-200 cursor-pointer"
-            >
-              <span className="text-base font-semibold">{col.socialName}</span>
-              <ArrowUpRight
-                size={18}
-                className="text-gray-400 group-hover:text-[#15803d] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              />
-            </a>
+            {col.socialName ? (
+              <a
+                href={col.socialLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between font-bold text-gray-900 hover:text-[#15803d] px-6 py-6 border-b border-gray-200 group transition-colors duration-200 cursor-pointer"
+              >
+                <span className="text-base font-semibold">{col.socialName}</span>
+                <ArrowUpRight
+                  size={18}
+                  className="text-gray-400 group-hover:text-[#15803d] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                />
+              </a>
+            ) : (
+              <div className="px-6 py-6 border-b border-gray-200">
+                <span className="text-base font-semibold text-gray-900">{col.title}</span>
+              </div>
+            )}
 
             {/* Links Content */}
             <div className="p-6 flex-grow bg-[#fafafa]/30">

@@ -220,7 +220,7 @@ const masterFAQs: FAQItem[] = [
   {
     category: 'General Operations',
     question: 'How can I get started with Hubcheck\'s services?',
-    answer: 'Reach out to our team via phone at 783-848-4441 or email at info@hubcheck.com to discuss your objectives and service scope. We will recommend an approach that fits your business requirements.'
+    answer: 'Reach out to our team via phone at 9311463901 or email at Support@brightoindia.com to discuss your objectives and service scope. We will recommend an approach that fits your business requirements.'
   }
 ]
 

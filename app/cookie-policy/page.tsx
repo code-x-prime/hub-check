@@ -50,14 +50,13 @@ export default function CookiePolicyPage() {
               <ul className="list-disc pl-6 space-y-2">
                 <li><strong>Essential Cookies:</strong> Required to enable standard core features, such as page navigation, secure access, and system loading.</li>
                 <li><strong>Security Cookies:</strong> Help identify and prevent potential security risks, protecting the integrity of our platform.</li>
-                <li><strong>Performance & Analytics:</strong> Allow us to monitor site speed, loading diagnostics, and aggregate page views to optimize website design.</li>
               </ul>
             </div>
 
             <div className="space-y-4">
               <h2 className="text-2xl font-bold text-gray-950">3. Third-Party Cookies</h2>
               <p>
-                We do not allow third-party advertising cookies or trackers on our site. Any analytical tools we run collect anonymous, aggregate usage data that is not shared with external entities.
+                We do not use any third-party cookies, advertising trackers, or analytics tools on our site.
               </p>
             </div>
 

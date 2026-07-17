@@ -1,4 +1,3 @@
-import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
@@ -19,6 +18,7 @@ const jost = localFont({
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ScrollToTop from '@/components/ScrollToTop'
+import ErrorBoundary from '@/components/ErrorBoundary'
 
 
 
@@ -41,12 +41,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${manrope.variable} ${jost.variable}`}>
+      <head>
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+        <meta httpEquiv="X-Frame-Options" content="SAMEORIGIN" />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+      </head>
       <body className="font-sans antialiased">
-        <Navbar />
-        {children}
-        <ScrollToTop />
-        <Footer />
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        <ErrorBoundary>
+          <Navbar />
+          {children}
+          <ScrollToTop />
+          <Footer />
+        </ErrorBoundary>
       </body>
     </html>
   )
