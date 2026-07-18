@@ -43,7 +43,6 @@ export default function RootLayout({
     <html lang="en" className={`${manrope.variable} ${jost.variable}`}>
       <head>
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
-        <meta httpEquiv="X-Frame-Options" content="SAMEORIGIN" />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
       </head>
       <body className="font-sans antialiased">

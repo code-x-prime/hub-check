@@ -20,7 +20,7 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https://images.unsplash.com",
       "font-src 'self'",
-      "connect-src 'self' https://brighto-main.vercel.app",
+      "connect-src 'self' https://www.brightoindia.com https://brightoindia.com",
       "frame-ancestors 'self'",
       "base-uri 'self'",
       "form-action 'self'",
