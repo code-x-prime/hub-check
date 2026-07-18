@@ -26,8 +26,8 @@ export const contactFormSchema = z.object({
     .string()
     .min(10, 'Message must be at least 10 characters')
     .max(2000, 'Message must be less than 2000 characters'),
-  consent: z.literal(true, {
-    errorMap: () => ({ message: 'You must agree to the Privacy Policy and consent to data processing' }),
+  consent: z.boolean().refine(val => val === true, {
+    message: 'You must agree to the Privacy Policy and consent to data processing',
   }),
   website: z.string().max(0, 'Bot detected').optional().or(z.literal('')),
 })
@@ -51,8 +51,8 @@ export const jobApplicationSchema = z.object({
     .max(1000, 'Message must be less than 1000 characters')
     .optional()
     .or(z.literal('')),
-  consent: z.literal(true, {
-    errorMap: () => ({ message: 'You must agree to the Privacy Policy and consent to data processing' }),
+  consent: z.boolean().refine(val => val === true, {
+    message: 'You must agree to the Privacy Policy and consent to data processing',
   }),
   website: z.string().max(0, 'Bot detected').optional().or(z.literal('')),
 })

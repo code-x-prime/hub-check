@@ -8,10 +8,21 @@ import { contactFormSchema } from '@/lib/validation'
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_BRIGHTO_API_URL || 'http://localhost:3001'
 
-type FormErrors = Partial<Record<keyof typeof form, string>>
+interface FormState {
+  name: string
+  organization: string
+  email: string
+  phone: string
+  service: string
+  message: string
+  consent: boolean
+  website: string
+}
+
+type FormErrors = Partial<Record<keyof FormState, string>>
 
 export default function ContactPage() {
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<FormState>({
     name: '',
     organization: '',
     email: '',
