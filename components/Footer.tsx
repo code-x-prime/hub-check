@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
 
 const Footer = () => {
@@ -111,29 +110,51 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar: Copyright and Credits */}
-      <div className="bg-white py-12 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col items-center justify-center gap-4 text-center text-sm text-gray-500">
-          <div className="relative h-12 w-48 mb-2">
-            <Image
-              src="/logo.png"
-              alt="Hubcheck Logo"
-              fill
-              sizes="192px"
-              className="object-contain"
-            />
+      <div className="bg-white border-t border-gray-200">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-gray-200 text-xs text-gray-600">
+          {/* Column 1 & 2 (Span 2) */}
+          <div className="lg:col-span-2 p-6 flex flex-col justify-between gap-3">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 leading-relaxed">
+              <span>Hubcheck is a product of Brighto Credit Information Private Limited.</span>
+              <span>•</span>
+              <span>© {currentYear} Brighto Credit Information Private Limited. All Rights Reserved.</span>
+              <span>•</span>
+            </div>
+            <p className="text-gray-500 font-medium">
+              Design & Developed by{' '}
+              <a
+                href="https://groxmedia.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-gray-900 hover:text-[#15803d] transition-colors duration-200"
+              >
+                Grox Media
+              </a>
+            </p>
           </div>
-          <p>&copy; {currentYear} Hubcheck. All rights reserved.</p>
-          <p className="text-sm font-medium text-gray-400">
-            Design & Developed by{' '}
-            <a
-              href="https://groxmedia.in/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-bold text-gray-800 hover:text-[#15803d] underline decoration-dotted transition-colors duration-200"
+
+          {/* Column 3 */}
+          <div className="p-6 flex items-start justify-between gap-4">
+            <Link
+              href="/privacy-policy"
+              className="hover:text-gray-900 transition-colors duration-200 max-w-[80px] leading-snug"
             >
-              Grox Media
-            </a>
-          </p>
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms-of-use"
+              className="hover:text-gray-900 transition-colors duration-200 max-w-[80px] leading-snug"
+            >
+              Terms & Conditions
+            </Link>
+          </div>
+
+          {/* Column 4 */}
+          <div className="p-6 flex items-start">
+            <span className="leading-snug max-w-[200px]">
+              In the name of Brighto Credit Information Private Limited
+            </span>
+          </div>
         </div>
       </div>
 
