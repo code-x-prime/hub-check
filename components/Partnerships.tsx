@@ -3,29 +3,29 @@
 import Image from 'next/image'
 
 const partnerLogos = [
-  { name: 'Aditya Birla Capital', src: '/logos/Aditya Birla Housing Finance.png' },
-  { name: 'Ambit Finvest', src: '/logos/Ambit Finvest.png' },
-  { name: 'AU Small Finance Bank', src: '/logos/AU Small Finance Bank.png' },
-  { name: 'Authum Finance', src: '/logos/Authum Finance.png' },
-  { name: 'Electronica Finance', src: '/logos/Electronica Finance.png' },
+  { name: 'Aditya Birla Capital', src: '/logos/aditya-birla-housing-finance.png' },
+  { name: 'Ambit Finvest', src: '/logos/ambit-finvest.png' },
+  { name: 'AU Small Finance Bank', src: '/logos/au-small-finance-bank.png' },
+  { name: 'Authum Finance', src: '/logos/authum-finance.png' },
+  { name: 'Electronica Finance', src: '/logos/electronica-finance.png' },
 
-  { name: 'Equitas Small Finance Bank', src: '/logos/Equitas Small Finance Bank.png' },
-  { name: 'ESAF Small Finance Bank', src: '/logos/ESAF Small Finance Bank.png' },
-  { name: 'HDFC Bank', src: '/logos/HDFC Bank.png' },
-  { name: 'Hinduja Housing Finance', src: '/logos/Hinduja Housing Finance.png' },
-  { name: 'ICICI Bank', src: '/logos/ICICI Bank.png' },
+  { name: 'Equitas Small Finance Bank', src: '/logos/equitas-small-finance-bank.png' },
+  { name: 'ESAF Small Finance Bank', src: '/logos/esaf-small-finance-bank.png' },
+  { name: 'HDFC Bank', src: '/logos/hdfc-bank.png' },
+  { name: 'Hinduja Housing Finance', src: '/logos/hinduja-housing-finance.png' },
+  { name: 'ICICI Bank', src: '/logos/icici-bank.png' },
 
-  { name: 'IDBI Bank', src: '/logos/IDBI Bank.png' },
-  { name: 'IndusInd Bank', src: '/logos/IndusInd Bank.png' },
-  { name: 'Kotak Mahindra Bank', src: '/logos/Kotak Mahindra Bank.png' },
-  { name: 'L&T Finance', src: '/logos/L&T Finance.jpeg' },
-  { name: 'Maxemo Capital', src: '/logos/Maxemo Capital.png' },
+  { name: 'IDBI Bank', src: '/logos/idbi-bank.png' },
+  { name: 'IndusInd Bank', src: '/logos/indusind-bank.png' },
+  { name: 'Kotak Mahindra Bank', src: '/logos/kotak-mahindra-bank.png' },
+  { name: 'L&T Finance', src: '/logos/lt-finance.jpeg' },
+  { name: 'Maxemo Capital', src: '/logos/maxemo-capital.png' },
 
-  { name: 'Poonawalla Fincorp', src: '/logos/Poonawalla Fincorp.png' },
-  { name: 'SMFG India Credit', src: '/logos/SMFG India Credit.png' },
-  { name: 'TVS Credit', src: '/logos/TVS Credit.png' },
-  { name: 'Ujjivan Small Finance Bank', src: '/logos/Ujjivan Small Finance Bank.png' },
-  { name: 'YES BANK', src: '/logos/YES BANK.png' },
+  { name: 'Poonawalla Fincorp', src: '/logos/poonawalla-fincorp.png' },
+  { name: 'SMFG India Credit', src: '/logos/smfg-india-credit.png' },
+  { name: 'TVS Credit', src: '/logos/tvs-credit.png' },
+  { name: 'Ujjivan Small Finance Bank', src: '/logos/ujjivan-small-finance-bank.png' },
+  { name: 'YES BANK', src: '/logos/yes-bank.png' },
 ]
 
 export default function Partnerships() {

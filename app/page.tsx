@@ -5,6 +5,7 @@ import Industries from '@/components/Industries'
 import Commodities from '@/components/Commodities'
 import WhyChooseUs from '@/components/WhyChooseUs'
 import Process from '@/components/Process'
+import Team from '@/components/Team'
 import Partnerships from '@/components/Partnerships'
 import FAQ from '@/components/FAQ'
 import CTABanner from '@/components/CTABanner'
@@ -19,6 +20,7 @@ export default function Page() {
       <Commodities />
       <WhyChooseUs />
       <Process />
+      <Team />
       <Partnerships />
       <CTABanner />
       <FAQ />
