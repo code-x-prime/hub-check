@@ -120,17 +120,7 @@ const Footer = () => {
               <span>© {currentYear} Brighto Credit Information Private Limited. All Rights Reserved.</span>
               <span>•</span>
             </div>
-            <p className="text-gray-500 font-medium">
-              Design & Developed by{' '}
-              <a
-                href="https://groxmedia.in/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-bold text-gray-900 hover:text-[#15803d] transition-colors duration-200"
-              >
-                Grox Media
-              </a>
-            </p>
+
           </div>
 
           {/* Column 3 */}
