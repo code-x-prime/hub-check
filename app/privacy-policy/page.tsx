@@ -55,7 +55,7 @@ export default function PrivacyPolicyPage() {
                 <p><strong>Company Name:</strong> Brighto Credit Information Pvt. Ltd. (operating as Hubcheck)</p>
                 <p><strong>Registered Address:</strong> C-83, 1st Floor, Sector-2, Noida, India</p>
                 <p><strong>Contact Email:</strong> <a href="mailto:Support@brightoindia.com" className="text-[#15803d]">Support@brightoindia.com</a></p>
-                <p><strong>Contact Phone:</strong> +91-9311463901</p>
+                <p><strong>Contact Phone:</strong> +91 120 453 9428</p>
               </div>
             </div>
 
@@ -197,7 +197,7 @@ export default function PrivacyPolicyPage() {
                 <p><strong>Grievance Officer</strong></p>
                 <p>Hubcheck Data Protection Team</p>
                 <p>Email: <a href="mailto:Support@brightoindia.com" className="text-[#15803d]">Support@brightoindia.com</a></p>
-                <p>Phone: +91-9311463901</p>
+                <p>Phone: +91 120 453 9428</p>
                 <p>Address: C-83, 1st Floor, Sector-2, Noida, India</p>
                 <p className="text-xs text-gray-400 mt-2">We will acknowledge your grievance within 24 hours and resolve it within 30 days.</p>
               </div>
@@ -211,7 +211,7 @@ export default function PrivacyPolicyPage() {
               <div className="bg-gray-50 border border-gray-150 p-6 rounded-lg space-y-1 font-semibold text-sm">
                 <p>Hubcheck Data Protection Office</p>
                 <p>Email: <a href="mailto:Support@brightoindia.com" className="text-[#15803d]">Support@brightoindia.com</a></p>
-                <p>Call: +91-9311463901</p>
+                <p>Call: +91 120 453 9428</p>
                 <p>Address: C-83, 1st Floor, Sector-2, Noida, India</p>
               </div>
             </div>

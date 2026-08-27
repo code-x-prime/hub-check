@@ -188,9 +188,6 @@ export default function ContactPage() {
                   </div>
                   <div className="space-y-1">
                     <h4 className="text-sm font-bold text-gray-900">Contact Number</h4>
-                    <a href="tel:+919311463901" className="text-sm text-[#ff6b00] hover:underline font-semibold block">
-                      +91-9311463901
-                    </a>
                     <a href="tel:+911204539428" className="text-sm text-[#ff6b00] hover:underline font-semibold block">
                       +91 120 453 9428
                     </a>

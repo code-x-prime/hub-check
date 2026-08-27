@@ -40,8 +40,7 @@ const Footer = () => {
       socialLink: '',
       title: 'CONTACT INFO',
       links: [
-        { label: 'Call: +91-9311463901', href: 'tel:+919311463901' },
-        { label: 'Landline: +91 120 453 9428', href: 'tel:+911204539428' },
+        { label: 'Call: +91 120 453 9428', href: 'tel:+911204539428' },
         { label: 'Email: Support@brightoindia.com', href: 'mailto:Support@brightoindia.com' },
         { label: 'Location: C-83, Sector-2, Noida', href: '/contact' }
       ]
