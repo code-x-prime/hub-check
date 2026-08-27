@@ -6,7 +6,7 @@ import { MapPin, Phone, Mail, Clock, Loader2, CheckCircle2, AlertCircle } from '
 import HeroCanvas from '../services/warehouse-audit/HeroCanvas'
 import { contactFormSchema } from '@/lib/validation'
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_BRIGHTO_API_URL || 'http://localhost:3001'
+const API_BASE_URL = process.env.NEXT_PUBLIC_BRIGHTO_API_URL || 'https://www.brightoindia.com'
 
 interface FormState {
   name: string
@@ -105,7 +105,9 @@ export default function ContactPage() {
         email: form.email.trim().toLowerCase(),
         phone: form.phone.trim(),
         subject: `[Hubcheck] Inquiry for ${form.service}`,
-        message: `Organization: ${form.organization || 'Not Specified'}\nService: ${form.service}\nSource Site: Hubcheck\n\nMessage:\n${form.message.trim()}`
+        message: `Organization: ${form.organization || 'Not Specified'}\nService: ${form.service}\nSource Site: Hubcheck\n\nMessage:\n${form.message.trim()}`,
+        source: 'Hubcheck',
+        consent: form.consent ? 'true' : 'false',
       }
 
       const res = await fetch(`${API_BASE_URL}/api/contact`, {
@@ -186,8 +188,11 @@ export default function ContactPage() {
                   </div>
                   <div className="space-y-1">
                     <h4 className="text-sm font-bold text-gray-900">Contact Number</h4>
-                    <a href="tel:+919311463901" className="text-sm text-[#ff6b00] hover:underline font-semibold">
+                    <a href="tel:+919311463901" className="text-sm text-[#ff6b00] hover:underline font-semibold block">
                       +91-9311463901
+                    </a>
+                    <a href="tel:+911204539428" className="text-sm text-[#ff6b00] hover:underline font-semibold block">
+                      +91 120 453 9428
                     </a>
                   </div>
                 </div>

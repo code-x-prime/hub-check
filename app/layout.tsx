@@ -19,6 +19,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ScrollToTop from '@/components/ScrollToTop'
 import ErrorBoundary from '@/components/ErrorBoundary'
+import WhatsAppButton from '@/components/WhatsAppButton'
 
 
 
@@ -51,6 +52,7 @@ export default function RootLayout({
           {children}
           <ScrollToTop />
           <Footer />
+          <WhatsAppButton />
         </ErrorBoundary>
       </body>
     </html>
