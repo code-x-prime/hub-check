@@ -27,7 +27,7 @@ type FormErrors = {
 }
 
 const JOBS_PER_PAGE = 6
-const API_BASE_URL = process.env.NEXT_PUBLIC_BRIGHTO_API_URL || 'http://localhost:3001'
+const API_BASE_URL = process.env.NEXT_PUBLIC_BRIGHTO_API_URL || 'https://www.brightoindia.com'
 
 function useDebounce(value: string, delay: number) {
   const [debounced, setDebounced] = useState(value)
@@ -221,6 +221,7 @@ export default function CareerPage() {
       formData.append('phone', form.phone)
       formData.append('message', form.message)
       formData.append('jobId', selectedJob.id)
+      formData.append('consent', 'true')
       formData.append('resume', resume)
 
       const res = await fetch(`${API_BASE_URL}/api/jobs/apply`, {
