@@ -349,6 +349,7 @@ export default function ContactPage() {
                       <option>Warehouse Inspection</option>
                       <option>Collateral Management Audit</option>
                       <option>Warehouse Due Diligence</option>
+                      <option>Job Enquiry</option>
                     </select>
                   </div>
 
